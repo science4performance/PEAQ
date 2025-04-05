@@ -294,10 +294,10 @@ def display_results():
     if injury_data_available:
         st.subheader("Injury Information")
         
-        # Days off dancing due to injury
+        # Days off dancing due to injury (now multiple choice)
         if 7 in st.session_state.answers:
-            days_off = st.session_state.answers[7].get("value")
-            st.metric("Days off dancing due to injury (last year)", f"{int(days_off)} days")
+            days_off = st.session_state.answers[7].get("answer", "")
+            st.metric("Days off dancing due to injury (last year)", days_off)
         
         # Soft tissue injuries
         if 8 in st.session_state.answers:
@@ -577,10 +577,10 @@ def display_previous_assessments():
                     if injury_data_available:
                         st.subheader("Injury Information")
                         
-                        # Days off dancing due to injury
+                        # Days off dancing due to injury (now multiple choice)
                         if 7 in selected['answers']:
-                            days_off = selected['answers'][7].get("value")
-                            st.metric("Days off dancing due to injury (last year)", f"{int(days_off)} days")
+                            days_off = selected['answers'][7].get("answer", "")
+                            st.metric("Days off dancing due to injury (last year)", days_off)
                         
                         # Soft tissue injuries
                         if 8 in selected['answers']:

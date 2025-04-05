@@ -84,11 +84,14 @@ def get_questions():
         {
             "id": 8,
             "text": "During the last year how many days off dancing have you had due to injury?",
-            "type": "numeric_input",
-            "min": 0,
-            "max": 365,
-            "category": "injuries",
-            "unit": "days"
+            "type": "multiple_choice",
+            "options": [
+                "0 to 6 days",
+                "7 to 13 days",
+                "14 days or more"
+            ],
+            "scores": [10, 5, 2.5],
+            "category": "injuries"
         },
         {
             "id": 9,
