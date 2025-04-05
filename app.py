@@ -582,20 +582,20 @@ def display_previous_assessments():
                             days_off = selected['answers'][7].get("answer", "")
                             st.metric("Days off dancing due to injury (last year)", days_off)
                         
-                        # Soft tissue injuries
+                        # Soft tissue injuries (now multiple choice)
                         if 8 in selected['answers']:
-                            soft_injuries = selected['answers'][8].get("value")
-                            st.metric("Soft tissue injuries (last year)", f"{int(soft_injuries)}")
+                            soft_injuries = selected['answers'][8].get("answer", "")
+                            st.metric("Soft tissue injuries (last year)", soft_injuries)
                         
-                        # Recurrent soft tissue injuries
+                        # Recurrent soft tissue injuries (now multiple choice)
                         if 9 in selected['answers']:
-                            recurrent_soft = selected['answers'][9].get("value")
-                            st.metric("Recurrent soft tissue injuries", f"{int(recurrent_soft)}")
+                            recurrent_soft = selected['answers'][9].get("answer", "")
+                            st.metric("Recurrent soft tissue injuries", recurrent_soft)
                         
-                        # Recurrent bone injuries
+                        # Recurrent bone injuries (now multiple choice)
                         if 10 in selected['answers']:
-                            recurrent_bone = selected['answers'][10].get("value")
-                            st.metric("Recurrent bone injuries", f"{int(recurrent_bone)}")
+                            recurrent_bone = selected['answers'][10].get("answer", "")
+                            st.metric("Recurrent bone injuries", recurrent_bone)
                         
                         # Fracture locations (checkbox)
                         if 11 in selected['answers']:
