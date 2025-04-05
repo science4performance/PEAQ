@@ -38,6 +38,15 @@ def get_questions():
         },
         {
             "id": 4,
+            "text": "How often do you weight yourself per week?",
+            "type": "numeric_input",
+            "min": 0,
+            "max": 99,
+            "category": "physiological",
+            "unit": "times"
+        },
+        {
+            "id": 5,
             "text": "How would you rate your overall physical health?",
             "type": "scale",
             "min": 1,
@@ -45,7 +54,7 @@ def get_questions():
             "category": "physical"
         },
         {
-            "id": 5,
+            "id": 6,
             "text": "How often do you engage in moderate to vigorous physical activity?",
             "type": "multiple_choice",
             "options": [
@@ -60,7 +69,7 @@ def get_questions():
             "category": "physical"
         },
         {
-            "id": 6,
+            "id": 7,
             "text": "How would you rate your stress levels on average?",
             "type": "scale",
             "min": 1,  # 1 = Very high stress
@@ -68,7 +77,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 7,
+            "id": 8,
             "text": "How often do you feel anxious or overwhelmed?",
             "type": "multiple_choice",
             "options": [
@@ -82,7 +91,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 8,
+            "id": 9,
             "text": "How satisfied are you with your social connections and relationships?",
             "type": "scale",
             "min": 1,
@@ -90,7 +99,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 9,
+            "id": 10,
             "text": "How often do you interact meaningfully with friends or family?",
             "type": "multiple_choice",
             "options": [
