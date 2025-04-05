@@ -63,6 +63,15 @@ def get_questions():
         },
         {
             "id": 6,
+            "text": "If your periods stopped at some time in your life, for how many years did this last?",
+            "type": "numeric_input",
+            "min": 0,
+            "max": 30,
+            "category": "womens_health",
+            "unit": "years"
+        },
+        {
+            "id": 7,
             "text": "Have your periods stopped for 6 or more consecutive months (besides pregnancy or taking hormonal contraception)?",
             "type": "multiple_choice",
             "options": [
@@ -72,15 +81,6 @@ def get_questions():
             ],
             "scores": [10, 5, 2.5],
             "category": "womens_health"
-        },
-        {
-            "id": 7,
-            "text": "If your periods stopped at some time in your life, for how many years did this last?",
-            "type": "numeric_input",
-            "min": 0,
-            "max": 30,
-            "category": "womens_health",
-            "unit": "years"
         },
         {
             "id": 8,
