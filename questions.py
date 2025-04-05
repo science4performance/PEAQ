@@ -2,10 +2,8 @@ def get_categories():
     """Return the categories used in the health assessment."""
     return {
         "physical": "Physical Health",
-        "mental": "Mental Health",
-        "social": "Social Wellbeing",
-        "nutrition": "Nutrition",
-        "sleep": "Sleep Quality"
+        "physiological": "Physiological Health",
+        "psychological": "Psychological Wellbeing"
     }
 
 def get_questions():
@@ -40,7 +38,7 @@ def get_questions():
             "type": "scale",
             "min": 1,  # 1 = Very high stress
             "max": 10, # 10 = No stress
-            "category": "mental"
+            "category": "psychological"
         },
         {
             "id": 4,
@@ -54,7 +52,7 @@ def get_questions():
                 "Almost never"
             ],
             "scores": [0, 2.5, 5, 7.5, 10],
-            "category": "mental"
+            "category": "psychological"
         },
         {
             "id": 5,
@@ -62,7 +60,7 @@ def get_questions():
             "type": "scale",
             "min": 1,
             "max": 10,
-            "category": "social"
+            "category": "psychological"
         },
         {
             "id": 6,
@@ -76,7 +74,7 @@ def get_questions():
                 "Daily"
             ],
             "scores": [0, 2.5, 5, 7.5, 10],
-            "category": "social"
+            "category": "psychological"
         },
         {
             "id": 7,
@@ -84,7 +82,7 @@ def get_questions():
             "type": "scale",
             "min": 1,
             "max": 10,
-            "category": "nutrition"
+            "category": "physiological"
         },
         {
             "id": 8,
@@ -98,7 +96,7 @@ def get_questions():
                 "5 or more servings daily"
             ],
             "scores": [0, 2.5, 5, 7.5, 10],
-            "category": "nutrition"
+            "category": "physiological"
         },
         {
             "id": 9,
@@ -106,7 +104,7 @@ def get_questions():
             "type": "scale",
             "min": 1,
             "max": 10,
-            "category": "sleep"
+            "category": "physiological"
         },
         {
             "id": 10,
@@ -120,7 +118,7 @@ def get_questions():
                 "More than 8 hours"
             ],
             "scores": [0, 2.5, 7.5, 10, 7.5],  # Note: both too little and too much sleep can be suboptimal
-            "category": "sleep"
+            "category": "physiological"
         },
         {
             "id": 11,
@@ -134,7 +132,7 @@ def get_questions():
                 "Rarely or never"
             ],
             "scores": [0, 2.5, 5, 7.5, 10],
-            "category": "sleep"
+            "category": "physiological"
         },
         {
             "id": 12,
@@ -148,7 +146,7 @@ def get_questions():
                 "Rarely or never"
             ],
             "scores": [0, 2.5, 5, 7.5, 10],
-            "category": "nutrition"
+            "category": "physiological"
         },
         {
             "id": 13,
@@ -162,7 +160,7 @@ def get_questions():
                 "Rarely or never"
             ],
             "scores": [0, 2.5, 5, 7.5, 10],
-            "category": "mental"
+            "category": "psychological"
         },
         {
             "id": 14,
@@ -176,7 +174,7 @@ def get_questions():
                 "Very frequently (multiple times per week)"
             ],
             "scores": [0, 2.5, 5, 7.5, 10],
-            "category": "mental"
+            "category": "psychological"
         },
         {
             "id": 15,
