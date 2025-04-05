@@ -182,9 +182,14 @@ def display_results():
     # Calculate BMI if both height and weight are available
     if height_value and weight_value:
         bmi = weight_value / (height_value * height_value)
-        st.metric("BMI", f"{bmi:.1f}")
+        st.metric("Current BMI", f"{bmi:.1f}")
         
-        # Display BMI category
+        # Calculate lowest BMI if lowest weight is available
+        if lowest_weight_value:
+            lowest_bmi = lowest_weight_value / (height_value * height_value)
+            st.metric("Lowest BMI", f"{lowest_bmi:.1f}")
+        
+        # Display BMI category (based on current BMI)
         if bmi < 18.5:
             bmi_category = "Underweight"
         elif bmi < 25:
@@ -333,9 +338,14 @@ def display_previous_assessments():
                     # Calculate BMI if both height and weight are available
                     if height_value and weight_value:
                         bmi = weight_value / (height_value * height_value)
-                        st.metric("BMI", f"{bmi:.1f}")
+                        st.metric("Current BMI", f"{bmi:.1f}")
                         
-                        # Display BMI category
+                        # Calculate lowest BMI if lowest weight is available
+                        if lowest_weight_value:
+                            lowest_bmi = lowest_weight_value / (height_value * height_value)
+                            st.metric("Lowest BMI", f"{lowest_bmi:.1f}")
+                        
+                        # Display BMI category (based on current BMI)
                         if bmi < 18.5:
                             bmi_category = "Underweight"
                         elif bmi < 25:
