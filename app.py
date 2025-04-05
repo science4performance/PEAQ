@@ -167,8 +167,11 @@ def display_questionnaire():
                 key=f"q{current_q}"
             )
         elif question["id"] in [4, 7, 8, 9, 10, 11]:  # Integer questions
-            # Calculate midpoint for default value
-            default_value = int((question["min"] + question["max"]) / 2)
+            # Use the provided default value or calculate midpoint for default value
+            if "default" in question:
+                default_value = question["default"]
+            else:
+                default_value = int((question["min"] + question["max"]) / 2)
             
             # Input with validation for integer values
             value = st.number_input(

@@ -43,9 +43,10 @@ def get_questions():
             "text": "How often do you weight yourself per week?",
             "type": "numeric_input",
             "min": 0,
-            "max": 99,
+            "max": 20,
             "category": "physiological",
-            "unit": "times"
+            "unit": "times",
+            "default": 0
         },
         {
             "id": 5,
