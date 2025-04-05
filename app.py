@@ -138,6 +138,24 @@ def display_questionnaire():
                 "unit": question.get("unit", ""),
                 "category": question["category"]
             })
+            
+    elif question["type"] == "checkbox":
+        options = question["options"]
+        # Create a dictionary to store checkbox states
+        checkbox_values = {}
+        
+        for option in options:
+            checkbox_values[option] = st.checkbox(option, key=f"q{current_q}_{option}")
+        
+        if st.button("Next", key=f"next_{current_q}"):
+            # Get selected options
+            selected_options = [option for option, selected in checkbox_values.items() if selected]
+            
+            # Store the answer without scoring
+            save_answer(current_q, {
+                "answer": selected_options,
+                "category": question["category"]
+            })
     
     # Allow navigation between questions
     cols = st.columns(3)
@@ -200,6 +218,46 @@ def display_results():
             bmi_category = "Obese"
             
         st.write(f"BMI Category: **{bmi_category}**")
+    
+    # Display injury information if available
+    injury_data_available = False
+    for q_idx in [22, 23, 24, 25, 26]:  # Injury questions indices
+        if q_idx in st.session_state.answers:
+            injury_data_available = True
+            break
+    
+    if injury_data_available:
+        st.subheader("Injury Information")
+        
+        # Days off dancing due to injury
+        if 22 in st.session_state.answers:
+            days_off = st.session_state.answers[22].get("value")
+            st.metric("Days off dancing due to injury (last year)", f"{int(days_off)} days")
+        
+        # Soft tissue injuries
+        if 23 in st.session_state.answers:
+            soft_injuries = st.session_state.answers[23].get("value")
+            st.metric("Soft tissue injuries (last year)", f"{int(soft_injuries)}")
+        
+        # Recurrent soft tissue injuries
+        if 24 in st.session_state.answers:
+            recurrent_soft = st.session_state.answers[24].get("value")
+            st.metric("Recurrent soft tissue injuries", f"{int(recurrent_soft)}")
+        
+        # Recurrent bone injuries
+        if 25 in st.session_state.answers:
+            recurrent_bone = st.session_state.answers[25].get("value")
+            st.metric("Recurrent bone injuries", f"{int(recurrent_bone)}")
+        
+        # Fracture locations (checkbox)
+        if 26 in st.session_state.answers:
+            fracture_locations = st.session_state.answers[26].get("answer", [])
+            if fracture_locations:
+                st.write("**Fracture locations:**")
+                for location in fracture_locations:
+                    st.write(f"- {location}")
+            else:
+                st.write("**No fracture locations selected**")
     
     st.markdown("---")
     
@@ -356,6 +414,47 @@ def display_previous_assessments():
                             bmi_category = "Obese"
                             
                         st.write(f"BMI Category: **{bmi_category}**")
+                        
+                # Display injury information if available
+                if 'answers' in selected:
+                    injury_data_available = False
+                    for q_idx in [22, 23, 24, 25, 26]:  # Injury questions indices
+                        if q_idx in selected['answers']:
+                            injury_data_available = True
+                            break
+                    
+                    if injury_data_available:
+                        st.subheader("Injury Information")
+                        
+                        # Days off dancing due to injury
+                        if 22 in selected['answers']:
+                            days_off = selected['answers'][22].get("value")
+                            st.metric("Days off dancing due to injury (last year)", f"{int(days_off)} days")
+                        
+                        # Soft tissue injuries
+                        if 23 in selected['answers']:
+                            soft_injuries = selected['answers'][23].get("value")
+                            st.metric("Soft tissue injuries (last year)", f"{int(soft_injuries)}")
+                        
+                        # Recurrent soft tissue injuries
+                        if 24 in selected['answers']:
+                            recurrent_soft = selected['answers'][24].get("value")
+                            st.metric("Recurrent soft tissue injuries", f"{int(recurrent_soft)}")
+                        
+                        # Recurrent bone injuries
+                        if 25 in selected['answers']:
+                            recurrent_bone = selected['answers'][25].get("value")
+                            st.metric("Recurrent bone injuries", f"{int(recurrent_bone)}")
+                        
+                        # Fracture locations (checkbox)
+                        if 26 in selected['answers']:
+                            fracture_locations = selected['answers'][26].get("answer", [])
+                            if fracture_locations:
+                                st.write("**Fracture locations:**")
+                                for location in fracture_locations:
+                                    st.write(f"- {location}")
+                            else:
+                                st.write("**No fracture locations selected**")
             
             st.write(f"Overall Score: {selected['overall_score']:.1f}/10")
             

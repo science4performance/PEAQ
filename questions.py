@@ -4,7 +4,8 @@ def get_categories():
         "physical": "Physical Health",
         "physiological": "Physiological Health",
         "psychological": "Psychological Wellbeing",
-        "womens_health": "Women's Health"
+        "womens_health": "Women's Health",
+        "injuries": "Injury History"
     }
 
 def get_questions():
@@ -254,5 +255,55 @@ def get_questions():
             "max": 30,
             "category": "womens_health",
             "unit": "years"
+        },
+        {
+            "id": 23,
+            "text": "During the last year how many days off dancing have you had due to injury?",
+            "type": "numeric_input",
+            "min": 0,
+            "max": 365,
+            "category": "injuries",
+            "unit": "days"
+        },
+        {
+            "id": 24,
+            "text": "During the last year how many soft tissue injuries, e.g. muscle, ligament, tendon, joint (excluding fractures) have you had?",
+            "type": "numeric_input",
+            "min": 0,
+            "max": 10,
+            "category": "injuries",
+            "unit": "injuries"
+        },
+        {
+            "id": 25,
+            "text": "Of these soft tissue injuries, how many were recurrent (i.e. in the same place, or same type of injury)?",
+            "type": "numeric_input",
+            "min": 0,
+            "max": 10,
+            "category": "injuries",
+            "unit": "injuries"
+        },
+        {
+            "id": 26,
+            "text": "If you had bone injuries how many of these were recurrent, i.e. same place, or same type of injury?",
+            "type": "numeric_input",
+            "min": 0,
+            "max": 10,
+            "category": "injuries",
+            "unit": "injuries"
+        },
+        {
+            "id": 27,
+            "text": "If you have had any type of fractures, where have these been located? Check all that apply.",
+            "type": "checkbox",
+            "options": [
+                "Legs",
+                "Feet",
+                "Pelvis",
+                "Spine",
+                "Arms",
+                "Other"
+            ],
+            "category": "injuries"
         }
     ]
