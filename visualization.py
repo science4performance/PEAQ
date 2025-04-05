@@ -65,7 +65,8 @@ def create_category_bar_chart(scores_by_category):
     category_names = {
         'physical': 'Physical Health',
         'physiological': 'Physiological Health',
-        'psychological': 'Psychological Wellbeing'
+        'psychological': 'Psychological Wellbeing',
+        'womens_health': 'Women\'s Health'
     }
     
     df['Category'] = df['Category'].map(category_names)

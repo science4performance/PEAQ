@@ -3,7 +3,8 @@ def get_categories():
     return {
         "physical": "Physical Health",
         "physiological": "Physiological Health",
-        "psychological": "Psychological Wellbeing"
+        "psychological": "Psychological Wellbeing",
+        "womens_health": "Women's Health"
     }
 
 def get_questions():
@@ -143,7 +144,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 13,
+            "id": 14,
             "text": "On average, how many hours of sleep do you get per night?",
             "type": "multiple_choice",
             "options": [
@@ -157,7 +158,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 14,
+            "id": 15,
             "text": "How often do you have difficulty falling asleep or staying asleep?",
             "type": "multiple_choice",
             "options": [
@@ -171,7 +172,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 15,
+            "id": 16,
             "text": "How often do you consume processed foods or sugary drinks?",
             "type": "multiple_choice",
             "options": [
@@ -185,7 +186,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 16,
+            "id": 17,
             "text": "How often do you experience feelings of depression or persistent sadness?",
             "type": "multiple_choice",
             "options": [
@@ -199,7 +200,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 17,
+            "id": 18,
             "text": "How often do you engage in activities you enjoy or find meaningful?",
             "type": "multiple_choice",
             "options": [
@@ -213,11 +214,45 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 18,
+            "id": 19,
             "text": "How would you rate your ability to manage and recover from physical exertion?",
             "type": "scale",
             "min": 1,
             "max": 10,
             "category": "physical"
+        },
+        {
+            "id": 20,
+            "text": "How old were you when you had your first period?",
+            "type": "multiple_choice",
+            "options": [
+                "13 or younger",
+                "14-15",
+                "16 or older",
+                "Never started"
+            ],
+            "scores": [5, 7.5, 5, 2.5],
+            "category": "womens_health"
+        },
+        {
+            "id": 21,
+            "text": "Have your periods stopped for 6 or more consecutive months (besides pregnancy or taking hormonal contraception)?",
+            "type": "multiple_choice",
+            "options": [
+                "No, never",
+                "Yes, it has happened before",
+                "Yes, that is the situation now"
+            ],
+            "scores": [10, 5, 2.5],
+            "category": "womens_health"
+        },
+        {
+            "id": 22,
+            "text": "If your periods stopped at some time in your life, for how many years did this last?",
+            "type": "numeric_input",
+            "min": 0,
+            "max": 30,
+            "category": "womens_health",
+            "unit": "years"
         }
     ]
