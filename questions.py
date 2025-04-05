@@ -349,5 +349,76 @@ def get_questions():
             ],
             "scores": [0, 10],
             "category": "physical"
+        },
+        {
+            "id": 32,
+            "text": "How would you rate your levels of freshness over the past year?",
+            "type": "scale",
+            "min": 1,
+            "max": 6,
+            "min_label": "Extremely fatigued",
+            "max_label": "Always fresh",
+            "category": "physiological"
+        },
+        {
+            "id": 33,
+            "text": "How would you rate your sleep quality over the past year?",
+            "type": "scale",
+            "min": 1,
+            "max": 6,
+            "min_label": "Terrible",
+            "max_label": "Always a good night's sleep",
+            "category": "physiological"
+        },
+        {
+            "id": 34,
+            "text": "How would you rate your digestive system over the past year?",
+            "type": "scale",
+            "min": 1,
+            "max": 6,
+            "min_label": "Continual problems",
+            "max_label": "Always fine",
+            "category": "physiological"
+        },
+        {
+            "id": 35,
+            "text": "How does controlling what you eat affect the way you feel about yourself?",
+            "type": "multiple_choice",
+            "options": [
+                "Doesn't affect me",
+                "Not a big issue",
+                "Something I manage",
+                "On my mind",
+                "Important",
+                "Very important"
+            ],
+            "scores": [10, 8, 6, 4, 2, 0],
+            "category": "psychological"
+        },
+        {
+            "id": 36,
+            "text": "How does controlling what you weigh affect the way you feel about yourself?",
+            "type": "multiple_choice",
+            "options": [
+                "Doesn't affect me",
+                "Not a big issue",
+                "Something I manage",
+                "On my mind",
+                "Important",
+                "Very important"
+            ],
+            "scores": [10, 8, 6, 4, 2, 0],
+            "category": "psychological"
+        },
+        {
+            "id": 37,
+            "text": "Have you ever been diagnosed with an eating disorder?",
+            "type": "multiple_choice",
+            "options": [
+                "Yes",
+                "No"
+            ],
+            "scores": [0, 10],
+            "category": "psychological"
         }
     ]

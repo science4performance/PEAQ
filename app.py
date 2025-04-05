@@ -97,8 +97,13 @@ def display_questionnaire():
             })
             
     elif question["type"] == "scale":
+        # Create a more descriptive slider label if min_label and max_label are provided
+        slider_label = "Select a value:"
+        if "min_label" in question and "max_label" in question:
+            slider_label = f"Select a value (1 = {question['min_label']}, {question['max']} = {question['max_label']}):"
+        
         value = st.slider(
-            "Select a value:", 
+            slider_label, 
             min_value=question["min"], 
             max_value=question["max"],
             step=1,
@@ -293,6 +298,52 @@ def display_results():
             if 30 in st.session_state.answers:
                 smoking = st.session_state.answers[30].get("answer", "")
                 st.metric("Smokes", smoking)
+    
+    # Display wellbeing information if available
+    wellbeing_data_available = False
+    for q_idx in [31, 32, 33, 34, 35, 36]:  # Wellbeing questions indices
+        if q_idx in st.session_state.answers:
+            wellbeing_data_available = True
+            break
+    
+    if wellbeing_data_available:
+        st.subheader("Wellbeing Information")
+        
+        # Create columns for displaying wellbeing data
+        wellbeing_col1, wellbeing_col2, wellbeing_col3 = st.columns(3)
+        
+        with wellbeing_col1:
+            # Freshness rating
+            if 31 in st.session_state.answers:
+                freshness = st.session_state.answers[31].get("answer", "")
+                st.metric("Freshness Rating (1-6)", freshness)
+            
+            # Sleep quality
+            if 32 in st.session_state.answers:
+                sleep = st.session_state.answers[32].get("answer", "")
+                st.metric("Sleep Quality (1-6)", sleep)
+        
+        with wellbeing_col2:
+            # Digestive system
+            if 33 in st.session_state.answers:
+                digestive = st.session_state.answers[33].get("answer", "")
+                st.metric("Digestive Health (1-6)", digestive)
+            
+            # Eating control
+            if 34 in st.session_state.answers:
+                eating_control = st.session_state.answers[34].get("answer", "")
+                st.write(f"**Control over eating:** {eating_control}")
+        
+        with wellbeing_col3:
+            # Weight control
+            if 35 in st.session_state.answers:
+                weight_control = st.session_state.answers[35].get("answer", "")
+                st.write(f"**Control over weight:** {weight_control}")
+            
+            # Eating disorder diagnosis
+            if 36 in st.session_state.answers:
+                eating_disorder = st.session_state.answers[36].get("answer", "")
+                st.metric("Diagnosed with Eating Disorder", eating_disorder)
     
     st.markdown("---")
     
@@ -525,6 +576,52 @@ def display_previous_assessments():
                             if 30 in selected['answers']:
                                 smoking = selected['answers'][30].get("answer", "")
                                 st.metric("Smokes", smoking)
+                    
+                    # Display wellbeing information if available
+                    wellbeing_data_available = False
+                    for q_idx in [31, 32, 33, 34, 35, 36]:  # Wellbeing questions indices
+                        if q_idx in selected['answers']:
+                            wellbeing_data_available = True
+                            break
+                    
+                    if wellbeing_data_available:
+                        st.subheader("Wellbeing Information")
+                        
+                        # Create columns for displaying wellbeing data
+                        wellbeing_col1, wellbeing_col2, wellbeing_col3 = st.columns(3)
+                        
+                        with wellbeing_col1:
+                            # Freshness rating
+                            if 31 in selected['answers']:
+                                freshness = selected['answers'][31].get("answer", "")
+                                st.metric("Freshness Rating (1-6)", freshness)
+                            
+                            # Sleep quality
+                            if 32 in selected['answers']:
+                                sleep = selected['answers'][32].get("answer", "")
+                                st.metric("Sleep Quality (1-6)", sleep)
+                        
+                        with wellbeing_col2:
+                            # Digestive system
+                            if 33 in selected['answers']:
+                                digestive = selected['answers'][33].get("answer", "")
+                                st.metric("Digestive Health (1-6)", digestive)
+                            
+                            # Eating control
+                            if 34 in selected['answers']:
+                                eating_control = selected['answers'][34].get("answer", "")
+                                st.write(f"**Control over eating:** {eating_control}")
+                        
+                        with wellbeing_col3:
+                            # Weight control
+                            if 35 in selected['answers']:
+                                weight_control = selected['answers'][35].get("answer", "")
+                                st.write(f"**Control over weight:** {weight_control}")
+                            
+                            # Eating disorder diagnosis
+                            if 36 in selected['answers']:
+                                eating_disorder = selected['answers'][36].get("answer", "")
+                                st.metric("Diagnosed with Eating Disorder", eating_disorder)
             
             st.write(f"Overall Score: {selected['overall_score']:.1f}/10")
             
