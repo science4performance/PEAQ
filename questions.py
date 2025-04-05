@@ -63,12 +63,14 @@ def get_questions():
         },
         {
             "id": 6,
-            "text": "If your periods stopped at some time in your life, for how many years did this last?",
-            "type": "numeric_input",
-            "min": 0,
-            "max": 30,
-            "category": "womens_health",
-            "unit": "years"
+            "text": "Are your menstrual cycles regular?",
+            "type": "multiple_choice",
+            "options": [
+                "Yes (9 or more per calendar year)",
+                "No (less than 9 per calendar year)"
+            ],
+            "scores": [10, 5],
+            "category": "womens_health"
         },
         {
             "id": 7,
