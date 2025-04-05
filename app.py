@@ -126,11 +126,23 @@ def display_questionnaire():
         if "unit" in question:
             label += f" ({question['unit']})"
             
+        # Calculate default value as midpoint of range
+        default_value = question["min"]
+        
+        # Set default values for questions 1, 2, and 3
+        if question["id"] == 1:  # Height
+            default_value = (1.2 + 2.2) / 2  # 1.7m
+        elif question["id"] == 2:  # Current weight
+            default_value = (30 + 100) / 2  # 65kg
+        elif question["id"] == 3:  # Lowest weight
+            default_value = (30 + 100) / 2  # 65kg
+            
         # Input with validation
         value = st.number_input(
             label,
             min_value=float(question["min"]),
             max_value=float(question["max"]),
+            value=float(default_value),
             step=0.01,
             key=f"q{current_q}"
         )
