@@ -96,29 +96,37 @@ def get_questions():
         {
             "id": 9,
             "text": "During the last year how many soft tissue injuries, e.g. muscle, ligament, tendon, joint (excluding fractures) have you had?",
-            "type": "numeric_input",
-            "min": 0,
-            "max": 10,
-            "category": "injuries",
-            "unit": "injuries"
+            "type": "multiple_choice",
+            "options": [
+                "None",
+                "One",
+                "Two or more"
+            ],
+            "scores": [10, 5, 2.5],
+            "category": "injuries"
         },
         {
             "id": 10,
             "text": "Of these soft tissue injuries, how many were recurrent (i.e. in the same place, or same type of injury)?",
-            "type": "numeric_input",
-            "min": 0,
-            "max": 10,
-            "category": "injuries",
-            "unit": "injuries"
+            "type": "multiple_choice",
+            "options": [
+                "None",
+                "One",
+                "Two or more"
+            ],
+            "scores": [10, 5, 2.5],
+            "category": "injuries"
         },
         {
             "id": 11,
             "text": "If you had bone injuries how many of these were recurrent, i.e. same place, or same type of injury?",
-            "type": "numeric_input",
-            "min": 0,
-            "max": 10,
-            "category": "injuries",
-            "unit": "injuries"
+            "type": "multiple_choice",
+            "options": [
+                "Two or fewer",
+                "More than two"
+            ],
+            "scores": [7.5, 2.5],
+            "category": "injuries"
         },
         {
             "id": 12,
