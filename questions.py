@@ -113,7 +113,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 10,
+            "id": 11,
             "text": "How would you rate the overall quality of your diet?",
             "type": "scale",
             "min": 1,
@@ -121,7 +121,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 11,
+            "id": 12,
             "text": "How often do you consume fruits and vegetables?",
             "type": "multiple_choice",
             "options": [
@@ -135,7 +135,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 12,
+            "id": 13,
             "text": "How would you rate your sleep quality?",
             "type": "scale",
             "min": 1,
