@@ -136,10 +136,10 @@ def get_questions():
             "text": "Are you vegetarian?",
             "type": "multiple_choice",
             "options": [
-                "Yes",
-                "No"
+                "No",
+                "Yes"
             ],
-            "scores": [7.5, 5],
+            "scores": [5, 7.5],
             "category": "physiological"
         },
         {
@@ -147,10 +147,10 @@ def get_questions():
             "text": "Are you vegan?",
             "type": "multiple_choice",
             "options": [
-                "Yes",
-                "No"
+                "No",
+                "Yes"
             ],
-            "scores": [7.5, 5],
+            "scores": [5, 7.5],
             "category": "physiological"
         },
         {
@@ -158,10 +158,10 @@ def get_questions():
             "text": "Do you exclude carbohydrates from your diet?",
             "type": "multiple_choice",
             "options": [
-                "Yes",
-                "No"
+                "No",
+                "Yes"
             ],
-            "scores": [3, 7.5],
+            "scores": [7.5, 3],
             "category": "physiological"
         },
         {
@@ -169,10 +169,10 @@ def get_questions():
             "text": "Do you smoke?",
             "type": "multiple_choice",
             "options": [
-                "Yes",
-                "No"
+                "No",
+                "Yes"
             ],
-            "scores": [0, 10],
+            "scores": [10, 0],
             "category": "physical"
         },
         {
