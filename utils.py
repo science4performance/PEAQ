@@ -14,6 +14,11 @@ def calculate_scores(answers):
     # Sum scores by category
     for q_idx, answer_data in answers.items():
         category = answer_data["category"]
+        
+        # Skip numeric input questions which don't have scores
+        if "score" not in answer_data:
+            continue
+            
         score = answer_data["score"]
         
         if category in category_scores:

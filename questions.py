@@ -11,6 +11,33 @@ def get_questions():
     return [
         {
             "id": 1,
+            "text": "Please enter your current height (in metres e.g. 1.65)",
+            "type": "numeric_input",
+            "min": 1.2,
+            "max": 2.2,
+            "category": "physiological",
+            "unit": "m"
+        },
+        {
+            "id": 2,
+            "text": "Please enter your current weight (in kg)",
+            "type": "numeric_input",
+            "min": 30,
+            "max": 100,
+            "category": "physiological",
+            "unit": "kg"
+        },
+        {
+            "id": 3,
+            "text": "Please enter your lowest weight for your current height (in kg)",
+            "type": "numeric_input",
+            "min": 30,
+            "max": 100,
+            "category": "physiological",
+            "unit": "kg"
+        },
+        {
+            "id": 4,
             "text": "How would you rate your overall physical health?",
             "type": "scale",
             "min": 1,
@@ -18,7 +45,7 @@ def get_questions():
             "category": "physical"
         },
         {
-            "id": 2,
+            "id": 5,
             "text": "How often do you engage in moderate to vigorous physical activity?",
             "type": "multiple_choice",
             "options": [
@@ -33,7 +60,7 @@ def get_questions():
             "category": "physical"
         },
         {
-            "id": 3,
+            "id": 6,
             "text": "How would you rate your stress levels on average?",
             "type": "scale",
             "min": 1,  # 1 = Very high stress
@@ -41,7 +68,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 4,
+            "id": 7,
             "text": "How often do you feel anxious or overwhelmed?",
             "type": "multiple_choice",
             "options": [
@@ -55,7 +82,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 5,
+            "id": 8,
             "text": "How satisfied are you with your social connections and relationships?",
             "type": "scale",
             "min": 1,
@@ -63,7 +90,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 6,
+            "id": 9,
             "text": "How often do you interact meaningfully with friends or family?",
             "type": "multiple_choice",
             "options": [
@@ -77,7 +104,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 7,
+            "id": 10,
             "text": "How would you rate the overall quality of your diet?",
             "type": "scale",
             "min": 1,
@@ -85,7 +112,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 8,
+            "id": 11,
             "text": "How often do you consume fruits and vegetables?",
             "type": "multiple_choice",
             "options": [
@@ -99,7 +126,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 9,
+            "id": 12,
             "text": "How would you rate your sleep quality?",
             "type": "scale",
             "min": 1,
@@ -107,7 +134,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 10,
+            "id": 13,
             "text": "On average, how many hours of sleep do you get per night?",
             "type": "multiple_choice",
             "options": [
@@ -121,7 +148,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 11,
+            "id": 14,
             "text": "How often do you have difficulty falling asleep or staying asleep?",
             "type": "multiple_choice",
             "options": [
@@ -135,7 +162,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 12,
+            "id": 15,
             "text": "How often do you consume processed foods or sugary drinks?",
             "type": "multiple_choice",
             "options": [
@@ -149,7 +176,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 13,
+            "id": 16,
             "text": "How often do you experience feelings of depression or persistent sadness?",
             "type": "multiple_choice",
             "options": [
@@ -163,7 +190,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 14,
+            "id": 17,
             "text": "How often do you engage in activities you enjoy or find meaningful?",
             "type": "multiple_choice",
             "options": [
@@ -177,7 +204,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 15,
+            "id": 18,
             "text": "How would you rate your ability to manage and recover from physical exertion?",
             "type": "scale",
             "min": 1,

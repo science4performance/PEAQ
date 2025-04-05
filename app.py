@@ -114,6 +114,30 @@ def display_questionnaire():
                 "score": score,
                 "category": question["category"]
             })
+            
+    elif question["type"] == "numeric_input":
+        # Display unit if provided
+        label = f"Enter a value between {question['min']} and {question['max']}"
+        if "unit" in question:
+            label += f" ({question['unit']})"
+            
+        # Input with validation
+        value = st.number_input(
+            label,
+            min_value=float(question["min"]),
+            max_value=float(question["max"]),
+            step=0.01,
+            key=f"q{current_q}"
+        )
+        
+        if st.button("Next", key=f"next_{current_q}"):
+            # We don't calculate a score for numeric inputs, just store the value
+            save_answer(current_q, {
+                "answer": value,
+                "value": value,  # Raw value without scoring
+                "unit": question.get("unit", ""),
+                "category": question["category"]
+            })
     
     # Allow navigation between questions
     cols = st.columns(3)
@@ -125,6 +149,54 @@ def display_questionnaire():
 
 def display_results():
     st.header("Your Health Assessment Results")
+    
+    # Display metric input values first
+    st.subheader("Your Measurements")
+    metrics_col1, metrics_col2, metrics_col3 = st.columns(3)
+    
+    # Extract metrics from answers (first 3 questions)
+    height_value = None
+    weight_value = None
+    lowest_weight_value = None
+    
+    if 0 in st.session_state.answers:
+        height_value = st.session_state.answers[0].get("value")
+    if 1 in st.session_state.answers:
+        weight_value = st.session_state.answers[1].get("value")
+    if 2 in st.session_state.answers:
+        lowest_weight_value = st.session_state.answers[2].get("value")
+    
+    # Display the metric values
+    with metrics_col1:
+        if height_value is not None:
+            st.metric("Height", f"{height_value} m")
+    
+    with metrics_col2:
+        if weight_value is not None:
+            st.metric("Current Weight", f"{weight_value} kg")
+    
+    with metrics_col3:
+        if lowest_weight_value is not None:
+            st.metric("Lowest Weight", f"{lowest_weight_value} kg")
+    
+    # Calculate BMI if both height and weight are available
+    if height_value and weight_value:
+        bmi = weight_value / (height_value * height_value)
+        st.metric("BMI", f"{bmi:.1f}")
+        
+        # Display BMI category
+        if bmi < 18.5:
+            bmi_category = "Underweight"
+        elif bmi < 25:
+            bmi_category = "Normal weight"
+        elif bmi < 30:
+            bmi_category = "Overweight"
+        else:
+            bmi_category = "Obese"
+            
+        st.write(f"BMI Category: **{bmi_category}**")
+    
+    st.markdown("---")
     
     # Calculate scores
     scores_by_category = calculate_scores(st.session_state.answers)
@@ -226,6 +298,55 @@ def display_previous_assessments():
         selected = next((a for a in assessments if a['id'] == selected_assessment_id), None)
         if selected:
             st.subheader(f"Assessment from {selected['timestamp'].strftime('%Y-%m-%d %H:%M')}")
+            
+            # Display metrics if they exist in the answers
+            if 'answers' in selected:
+                # Extract metrics from answers (first 3 questions)
+                height_value = None
+                weight_value = None
+                lowest_weight_value = None
+                
+                if 0 in selected['answers']:
+                    height_value = selected['answers'][0].get("value")
+                if 1 in selected['answers']:
+                    weight_value = selected['answers'][1].get("value")
+                if 2 in selected['answers']:
+                    lowest_weight_value = selected['answers'][2].get("value")
+                
+                if any([height_value, weight_value, lowest_weight_value]):
+                    st.subheader("Measurements")
+                    metrics_col1, metrics_col2, metrics_col3 = st.columns(3)
+                    
+                    # Display the metric values
+                    with metrics_col1:
+                        if height_value is not None:
+                            st.metric("Height", f"{height_value} m")
+                    
+                    with metrics_col2:
+                        if weight_value is not None:
+                            st.metric("Current Weight", f"{weight_value} kg")
+                    
+                    with metrics_col3:
+                        if lowest_weight_value is not None:
+                            st.metric("Lowest Weight", f"{lowest_weight_value} kg")
+                    
+                    # Calculate BMI if both height and weight are available
+                    if height_value and weight_value:
+                        bmi = weight_value / (height_value * height_value)
+                        st.metric("BMI", f"{bmi:.1f}")
+                        
+                        # Display BMI category
+                        if bmi < 18.5:
+                            bmi_category = "Underweight"
+                        elif bmi < 25:
+                            bmi_category = "Normal weight"
+                        elif bmi < 30:
+                            bmi_category = "Overweight"
+                        else:
+                            bmi_category = "Obese"
+                            
+                        st.write(f"BMI Category: **{bmi_category}**")
+            
             st.write(f"Overall Score: {selected['overall_score']:.1f}/10")
             
             # Display category scores
