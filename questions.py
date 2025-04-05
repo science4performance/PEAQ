@@ -305,5 +305,49 @@ def get_questions():
                 "Other"
             ],
             "category": "injuries"
+        },
+        {
+            "id": 28,
+            "text": "Are you vegetarian?",
+            "type": "multiple_choice",
+            "options": [
+                "Yes",
+                "No"
+            ],
+            "scores": [7.5, 5],
+            "category": "physiological"
+        },
+        {
+            "id": 29,
+            "text": "Are you vegan?",
+            "type": "multiple_choice",
+            "options": [
+                "Yes",
+                "No"
+            ],
+            "scores": [7.5, 5],
+            "category": "physiological"
+        },
+        {
+            "id": 30,
+            "text": "Do you exclude carbohydrates from your diet?",
+            "type": "multiple_choice",
+            "options": [
+                "Yes",
+                "No"
+            ],
+            "scores": [3, 7.5],
+            "category": "physiological"
+        },
+        {
+            "id": 31,
+            "text": "Do you smoke?",
+            "type": "multiple_choice",
+            "options": [
+                "Yes",
+                "No"
+            ],
+            "scores": [0, 10],
+            "category": "physical"
         }
     ]

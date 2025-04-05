@@ -258,6 +258,41 @@ def display_results():
                     st.write(f"- {location}")
             else:
                 st.write("**No fracture locations selected**")
+                
+    # Display lifestyle information if available
+    lifestyle_data_available = False
+    for q_idx in [27, 28, 29, 30]:  # Diet and Smoking questions indices
+        if q_idx in st.session_state.answers:
+            lifestyle_data_available = True
+            break
+    
+    if lifestyle_data_available:
+        st.subheader("Lifestyle Information")
+        
+        # Create two columns for displaying lifestyle data
+        lifestyle_col1, lifestyle_col2 = st.columns(2)
+        
+        with lifestyle_col1:
+            # Vegetarian status
+            if 27 in st.session_state.answers:
+                vegetarian = st.session_state.answers[27].get("answer", "")
+                st.metric("Vegetarian", vegetarian)
+            
+            # Vegan status
+            if 28 in st.session_state.answers:
+                vegan = st.session_state.answers[28].get("answer", "")
+                st.metric("Vegan", vegan)
+        
+        with lifestyle_col2:
+            # Carb exclusion
+            if 29 in st.session_state.answers:
+                carb_exclusion = st.session_state.answers[29].get("answer", "")
+                st.metric("Excludes Carbohydrates", carb_exclusion)
+            
+            # Smoking status
+            if 30 in st.session_state.answers:
+                smoking = st.session_state.answers[30].get("answer", "")
+                st.metric("Smokes", smoking)
     
     st.markdown("---")
     
@@ -455,6 +490,41 @@ def display_previous_assessments():
                                     st.write(f"- {location}")
                             else:
                                 st.write("**No fracture locations selected**")
+                                
+                    # Display lifestyle information if available
+                    lifestyle_data_available = False
+                    for q_idx in [27, 28, 29, 30]:  # Diet and Smoking questions indices
+                        if q_idx in selected['answers']:
+                            lifestyle_data_available = True
+                            break
+                    
+                    if lifestyle_data_available:
+                        st.subheader("Lifestyle Information")
+                        
+                        # Create two columns for displaying lifestyle data
+                        lifestyle_col1, lifestyle_col2 = st.columns(2)
+                        
+                        with lifestyle_col1:
+                            # Vegetarian status
+                            if 27 in selected['answers']:
+                                vegetarian = selected['answers'][27].get("answer", "")
+                                st.metric("Vegetarian", vegetarian)
+                            
+                            # Vegan status
+                            if 28 in selected['answers']:
+                                vegan = selected['answers'][28].get("answer", "")
+                                st.metric("Vegan", vegan)
+                        
+                        with lifestyle_col2:
+                            # Carb exclusion
+                            if 29 in selected['answers']:
+                                carb_exclusion = selected['answers'][29].get("answer", "")
+                                st.metric("Excludes Carbohydrates", carb_exclusion)
+                            
+                            # Smoking status
+                            if 30 in selected['answers']:
+                                smoking = selected['answers'][30].get("answer", "")
+                                st.metric("Smokes", smoking)
             
             st.write(f"Overall Score: {selected['overall_score']:.1f}/10")
             
