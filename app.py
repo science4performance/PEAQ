@@ -226,7 +226,7 @@ def display_results():
     
     # Display injury information if available
     injury_data_available = False
-    for q_idx in [22, 23, 24, 25, 26]:  # Injury questions indices
+    for q_idx in [7, 8, 9, 10, 11]:  # Injury questions indices
         if q_idx in st.session_state.answers:
             injury_data_available = True
             break
@@ -235,28 +235,28 @@ def display_results():
         st.subheader("Injury Information")
         
         # Days off dancing due to injury
-        if 22 in st.session_state.answers:
-            days_off = st.session_state.answers[22].get("value")
+        if 7 in st.session_state.answers:
+            days_off = st.session_state.answers[7].get("value")
             st.metric("Days off dancing due to injury (last year)", f"{int(days_off)} days")
         
         # Soft tissue injuries
-        if 23 in st.session_state.answers:
-            soft_injuries = st.session_state.answers[23].get("value")
+        if 8 in st.session_state.answers:
+            soft_injuries = st.session_state.answers[8].get("value")
             st.metric("Soft tissue injuries (last year)", f"{int(soft_injuries)}")
         
         # Recurrent soft tissue injuries
-        if 24 in st.session_state.answers:
-            recurrent_soft = st.session_state.answers[24].get("value")
+        if 9 in st.session_state.answers:
+            recurrent_soft = st.session_state.answers[9].get("value")
             st.metric("Recurrent soft tissue injuries", f"{int(recurrent_soft)}")
         
         # Recurrent bone injuries
-        if 25 in st.session_state.answers:
-            recurrent_bone = st.session_state.answers[25].get("value")
+        if 10 in st.session_state.answers:
+            recurrent_bone = st.session_state.answers[10].get("value")
             st.metric("Recurrent bone injuries", f"{int(recurrent_bone)}")
         
         # Fracture locations (checkbox)
-        if 26 in st.session_state.answers:
-            fracture_locations = st.session_state.answers[26].get("answer", [])
+        if 11 in st.session_state.answers:
+            fracture_locations = st.session_state.answers[11].get("answer", [])
             if fracture_locations:
                 st.write("**Fracture locations:**")
                 for location in fracture_locations:
@@ -266,7 +266,7 @@ def display_results():
                 
     # Display lifestyle information if available
     lifestyle_data_available = False
-    for q_idx in [27, 28, 29, 30]:  # Diet and Smoking questions indices
+    for q_idx in [12, 13, 14, 15]:  # Diet and Smoking questions indices
         if q_idx in st.session_state.answers:
             lifestyle_data_available = True
             break
@@ -279,29 +279,29 @@ def display_results():
         
         with lifestyle_col1:
             # Vegetarian status
-            if 27 in st.session_state.answers:
-                vegetarian = st.session_state.answers[27].get("answer", "")
+            if 12 in st.session_state.answers:
+                vegetarian = st.session_state.answers[12].get("answer", "")
                 st.metric("Vegetarian", vegetarian)
             
             # Vegan status
-            if 28 in st.session_state.answers:
-                vegan = st.session_state.answers[28].get("answer", "")
+            if 13 in st.session_state.answers:
+                vegan = st.session_state.answers[13].get("answer", "")
                 st.metric("Vegan", vegan)
         
         with lifestyle_col2:
             # Carb exclusion
-            if 29 in st.session_state.answers:
-                carb_exclusion = st.session_state.answers[29].get("answer", "")
+            if 14 in st.session_state.answers:
+                carb_exclusion = st.session_state.answers[14].get("answer", "")
                 st.metric("Excludes Carbohydrates", carb_exclusion)
             
             # Smoking status
-            if 30 in st.session_state.answers:
-                smoking = st.session_state.answers[30].get("answer", "")
+            if 15 in st.session_state.answers:
+                smoking = st.session_state.answers[15].get("answer", "")
                 st.metric("Smokes", smoking)
     
     # Display wellbeing information if available
     wellbeing_data_available = False
-    for q_idx in [31, 32, 33, 34, 35, 36]:  # Wellbeing questions indices
+    for q_idx in [16, 17, 18, 19, 20, 21]:  # Wellbeing questions indices
         if q_idx in st.session_state.answers:
             wellbeing_data_available = True
             break
@@ -314,35 +314,35 @@ def display_results():
         
         with wellbeing_col1:
             # Freshness rating
-            if 31 in st.session_state.answers:
-                freshness = st.session_state.answers[31].get("answer", "")
+            if 16 in st.session_state.answers:
+                freshness = st.session_state.answers[16].get("answer", "")
                 st.metric("Freshness Rating (1-6)", freshness)
             
             # Sleep quality
-            if 32 in st.session_state.answers:
-                sleep = st.session_state.answers[32].get("answer", "")
+            if 17 in st.session_state.answers:
+                sleep = st.session_state.answers[17].get("answer", "")
                 st.metric("Sleep Quality (1-6)", sleep)
         
         with wellbeing_col2:
             # Digestive system
-            if 33 in st.session_state.answers:
-                digestive = st.session_state.answers[33].get("answer", "")
+            if 18 in st.session_state.answers:
+                digestive = st.session_state.answers[18].get("answer", "")
                 st.metric("Digestive Health (1-6)", digestive)
             
             # Eating control
-            if 34 in st.session_state.answers:
-                eating_control = st.session_state.answers[34].get("answer", "")
+            if 19 in st.session_state.answers:
+                eating_control = st.session_state.answers[19].get("answer", "")
                 st.write(f"**Control over eating:** {eating_control}")
         
         with wellbeing_col3:
             # Weight control
-            if 35 in st.session_state.answers:
-                weight_control = st.session_state.answers[35].get("answer", "")
+            if 20 in st.session_state.answers:
+                weight_control = st.session_state.answers[20].get("answer", "")
                 st.write(f"**Control over weight:** {weight_control}")
             
             # Eating disorder diagnosis
-            if 36 in st.session_state.answers:
-                eating_disorder = st.session_state.answers[36].get("answer", "")
+            if 21 in st.session_state.answers:
+                eating_disorder = st.session_state.answers[21].get("answer", "")
                 st.metric("Diagnosed with Eating Disorder", eating_disorder)
     
     st.markdown("---")
@@ -504,7 +504,7 @@ def display_previous_assessments():
                 # Display injury information if available
                 if 'answers' in selected:
                     injury_data_available = False
-                    for q_idx in [22, 23, 24, 25, 26]:  # Injury questions indices
+                    for q_idx in [7, 8, 9, 10, 11]:  # Injury questions indices
                         if q_idx in selected['answers']:
                             injury_data_available = True
                             break
@@ -513,28 +513,28 @@ def display_previous_assessments():
                         st.subheader("Injury Information")
                         
                         # Days off dancing due to injury
-                        if 22 in selected['answers']:
-                            days_off = selected['answers'][22].get("value")
+                        if 7 in selected['answers']:
+                            days_off = selected['answers'][7].get("value")
                             st.metric("Days off dancing due to injury (last year)", f"{int(days_off)} days")
                         
                         # Soft tissue injuries
-                        if 23 in selected['answers']:
-                            soft_injuries = selected['answers'][23].get("value")
+                        if 8 in selected['answers']:
+                            soft_injuries = selected['answers'][8].get("value")
                             st.metric("Soft tissue injuries (last year)", f"{int(soft_injuries)}")
                         
                         # Recurrent soft tissue injuries
-                        if 24 in selected['answers']:
-                            recurrent_soft = selected['answers'][24].get("value")
+                        if 9 in selected['answers']:
+                            recurrent_soft = selected['answers'][9].get("value")
                             st.metric("Recurrent soft tissue injuries", f"{int(recurrent_soft)}")
                         
                         # Recurrent bone injuries
-                        if 25 in selected['answers']:
-                            recurrent_bone = selected['answers'][25].get("value")
+                        if 10 in selected['answers']:
+                            recurrent_bone = selected['answers'][10].get("value")
                             st.metric("Recurrent bone injuries", f"{int(recurrent_bone)}")
                         
                         # Fracture locations (checkbox)
-                        if 26 in selected['answers']:
-                            fracture_locations = selected['answers'][26].get("answer", [])
+                        if 11 in selected['answers']:
+                            fracture_locations = selected['answers'][11].get("answer", [])
                             if fracture_locations:
                                 st.write("**Fracture locations:**")
                                 for location in fracture_locations:
@@ -544,7 +544,7 @@ def display_previous_assessments():
                                 
                     # Display lifestyle information if available
                     lifestyle_data_available = False
-                    for q_idx in [27, 28, 29, 30]:  # Diet and Smoking questions indices
+                    for q_idx in [12, 13, 14, 15]:  # Diet and Smoking questions indices
                         if q_idx in selected['answers']:
                             lifestyle_data_available = True
                             break
@@ -557,29 +557,29 @@ def display_previous_assessments():
                         
                         with lifestyle_col1:
                             # Vegetarian status
-                            if 27 in selected['answers']:
-                                vegetarian = selected['answers'][27].get("answer", "")
+                            if 12 in selected['answers']:
+                                vegetarian = selected['answers'][12].get("answer", "")
                                 st.metric("Vegetarian", vegetarian)
                             
                             # Vegan status
-                            if 28 in selected['answers']:
-                                vegan = selected['answers'][28].get("answer", "")
+                            if 13 in selected['answers']:
+                                vegan = selected['answers'][13].get("answer", "")
                                 st.metric("Vegan", vegan)
                         
                         with lifestyle_col2:
                             # Carb exclusion
-                            if 29 in selected['answers']:
-                                carb_exclusion = selected['answers'][29].get("answer", "")
+                            if 14 in selected['answers']:
+                                carb_exclusion = selected['answers'][14].get("answer", "")
                                 st.metric("Excludes Carbohydrates", carb_exclusion)
                             
                             # Smoking status
-                            if 30 in selected['answers']:
-                                smoking = selected['answers'][30].get("answer", "")
+                            if 15 in selected['answers']:
+                                smoking = selected['answers'][15].get("answer", "")
                                 st.metric("Smokes", smoking)
                     
                     # Display wellbeing information if available
                     wellbeing_data_available = False
-                    for q_idx in [31, 32, 33, 34, 35, 36]:  # Wellbeing questions indices
+                    for q_idx in [16, 17, 18, 19, 20, 21]:  # Wellbeing questions indices
                         if q_idx in selected['answers']:
                             wellbeing_data_available = True
                             break
@@ -592,35 +592,35 @@ def display_previous_assessments():
                         
                         with wellbeing_col1:
                             # Freshness rating
-                            if 31 in selected['answers']:
-                                freshness = selected['answers'][31].get("answer", "")
+                            if 16 in selected['answers']:
+                                freshness = selected['answers'][16].get("answer", "")
                                 st.metric("Freshness Rating (1-6)", freshness)
                             
                             # Sleep quality
-                            if 32 in selected['answers']:
-                                sleep = selected['answers'][32].get("answer", "")
+                            if 17 in selected['answers']:
+                                sleep = selected['answers'][17].get("answer", "")
                                 st.metric("Sleep Quality (1-6)", sleep)
                         
                         with wellbeing_col2:
                             # Digestive system
-                            if 33 in selected['answers']:
-                                digestive = selected['answers'][33].get("answer", "")
+                            if 18 in selected['answers']:
+                                digestive = selected['answers'][18].get("answer", "")
                                 st.metric("Digestive Health (1-6)", digestive)
                             
                             # Eating control
-                            if 34 in selected['answers']:
-                                eating_control = selected['answers'][34].get("answer", "")
+                            if 19 in selected['answers']:
+                                eating_control = selected['answers'][19].get("answer", "")
                                 st.write(f"**Control over eating:** {eating_control}")
                         
                         with wellbeing_col3:
                             # Weight control
-                            if 35 in selected['answers']:
-                                weight_control = selected['answers'][35].get("answer", "")
+                            if 20 in selected['answers']:
+                                weight_control = selected['answers'][20].get("answer", "")
                                 st.write(f"**Control over weight:** {weight_control}")
                             
                             # Eating disorder diagnosis
-                            if 36 in selected['answers']:
-                                eating_disorder = selected['answers'][36].get("answer", "")
+                            if 21 in selected['answers']:
+                                eating_disorder = selected['answers'][21].get("answer", "")
                                 st.metric("Diagnosed with Eating Disorder", eating_disorder)
             
             st.write(f"Overall Score: {selected['overall_score']:.1f}/10")

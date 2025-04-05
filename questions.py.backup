@@ -49,6 +49,181 @@ def get_questions():
         },
         {
             "id": 5,
+            "text": "How would you rate your overall physical health?",
+            "type": "scale",
+            "min": 1,
+            "max": 10,
+            "category": "physical"
+        },
+        {
+            "id": 6,
+            "text": "How often do you engage in moderate to vigorous physical activity?",
+            "type": "multiple_choice",
+            "options": [
+                "Never",
+                "Rarely (once a month or less)",
+                "Occasionally (a few times a month)",
+                "Regularly (1-2 times a week)",
+                "Frequently (3-5 times a week)",
+                "Daily"
+            ],
+            "scores": [0, 2, 4, 6, 8, 10],
+            "category": "physical"
+        },
+        {
+            "id": 7,
+            "text": "How would you rate your stress levels on average?",
+            "type": "scale",
+            "min": 1,  # 1 = Very high stress
+            "max": 10, # 10 = No stress
+            "category": "psychological"
+        },
+        {
+            "id": 8,
+            "text": "How often do you feel anxious or overwhelmed?",
+            "type": "multiple_choice",
+            "options": [
+                "Constantly (every day)",
+                "Frequently (several times a week)",
+                "Occasionally (once a week)",
+                "Rarely (once a month)",
+                "Almost never"
+            ],
+            "scores": [0, 2.5, 5, 7.5, 10],
+            "category": "psychological"
+        },
+        {
+            "id": 9,
+            "text": "How satisfied are you with your social connections and relationships?",
+            "type": "scale",
+            "min": 1,
+            "max": 10,
+            "category": "psychological"
+        },
+        {
+            "id": 10,
+            "text": "How often do you interact meaningfully with friends or family?",
+            "type": "multiple_choice",
+            "options": [
+                "Rarely or never",
+                "Monthly",
+                "Weekly",
+                "A few times a week",
+                "Daily"
+            ],
+            "scores": [0, 2.5, 5, 7.5, 10],
+            "category": "psychological"
+        },
+        {
+            "id": 11,
+            "text": "How would you rate the overall quality of your diet?",
+            "type": "scale",
+            "min": 1,
+            "max": 10,
+            "category": "physiological"
+        },
+        {
+            "id": 12,
+            "text": "How often do you consume fruits and vegetables?",
+            "type": "multiple_choice",
+            "options": [
+                "Rarely or never",
+                "Occasionally (a few times a week)",
+                "Once daily",
+                "2-4 servings daily",
+                "5 or more servings daily"
+            ],
+            "scores": [0, 2.5, 5, 7.5, 10],
+            "category": "physiological"
+        },
+        {
+            "id": 13,
+            "text": "How would you rate your sleep quality?",
+            "type": "scale",
+            "min": 1,
+            "max": 10,
+            "category": "physiological"
+        },
+        {
+            "id": 14,
+            "text": "On average, how many hours of sleep do you get per night?",
+            "type": "multiple_choice",
+            "options": [
+                "Less than 5 hours",
+                "5-6 hours",
+                "6-7 hours",
+                "7-8 hours",
+                "More than 8 hours"
+            ],
+            "scores": [0, 2.5, 7.5, 10, 7.5],  # Note: both too little and too much sleep can be suboptimal
+            "category": "physiological"
+        },
+        {
+            "id": 15,
+            "text": "How often do you have difficulty falling asleep or staying asleep?",
+            "type": "multiple_choice",
+            "options": [
+                "Almost every night",
+                "Several times a week",
+                "About once a week",
+                "A few times a month",
+                "Rarely or never"
+            ],
+            "scores": [0, 2.5, 5, 7.5, 10],
+            "category": "physiological"
+        },
+        {
+            "id": 16,
+            "text": "How often do you consume processed foods or sugary drinks?",
+            "type": "multiple_choice",
+            "options": [
+                "Multiple times daily",
+                "Once daily",
+                "A few times a week",
+                "Occasionally (once a week or less)",
+                "Rarely or never"
+            ],
+            "scores": [0, 2.5, 5, 7.5, 10],
+            "category": "physiological"
+        },
+        {
+            "id": 17,
+            "text": "How often do you experience feelings of depression or persistent sadness?",
+            "type": "multiple_choice",
+            "options": [
+                "Daily",
+                "Several times a week",
+                "About once a week",
+                "Occasionally (a few times a month)",
+                "Rarely or never"
+            ],
+            "scores": [0, 2.5, 5, 7.5, 10],
+            "category": "psychological"
+        },
+        {
+            "id": 18,
+            "text": "How often do you engage in activities you enjoy or find meaningful?",
+            "type": "multiple_choice",
+            "options": [
+                "Rarely or never",
+                "Occasionally (once a month)",
+                "Sometimes (a few times a month)",
+                "Often (weekly)",
+                "Very frequently (multiple times per week)"
+            ],
+            "scores": [0, 2.5, 5, 7.5, 10],
+            "category": "psychological"
+        },
+        {
+            "id": 19,
+            "text": "How would you rate your ability to manage and recover from physical exertion?",
+            "type": "scale",
+            "min": 1,
+            "max": 10,
+            "category": "physical"
+        },
+        {
+            "id": 20,
             "text": "How old were you when you had your first period?",
             "type": "multiple_choice",
             "options": [
@@ -61,7 +236,7 @@ def get_questions():
             "category": "womens_health"
         },
         {
-            "id": 6,
+            "id": 21,
             "text": "Have your periods stopped for 6 or more consecutive months (besides pregnancy or taking hormonal contraception)?",
             "type": "multiple_choice",
             "options": [
@@ -73,7 +248,7 @@ def get_questions():
             "category": "womens_health"
         },
         {
-            "id": 7,
+            "id": 22,
             "text": "If your periods stopped at some time in your life, for how many years did this last?",
             "type": "numeric_input",
             "min": 0,
@@ -82,7 +257,7 @@ def get_questions():
             "unit": "years"
         },
         {
-            "id": 8,
+            "id": 23,
             "text": "During the last year how many days off dancing have you had due to injury?",
             "type": "numeric_input",
             "min": 0,
@@ -91,7 +266,7 @@ def get_questions():
             "unit": "days"
         },
         {
-            "id": 9,
+            "id": 24,
             "text": "During the last year how many soft tissue injuries, e.g. muscle, ligament, tendon, joint (excluding fractures) have you had?",
             "type": "numeric_input",
             "min": 0,
@@ -100,7 +275,7 @@ def get_questions():
             "unit": "injuries"
         },
         {
-            "id": 10,
+            "id": 25,
             "text": "Of these soft tissue injuries, how many were recurrent (i.e. in the same place, or same type of injury)?",
             "type": "numeric_input",
             "min": 0,
@@ -109,7 +284,7 @@ def get_questions():
             "unit": "injuries"
         },
         {
-            "id": 11,
+            "id": 26,
             "text": "If you had bone injuries how many of these were recurrent, i.e. same place, or same type of injury?",
             "type": "numeric_input",
             "min": 0,
@@ -118,7 +293,7 @@ def get_questions():
             "unit": "injuries"
         },
         {
-            "id": 12,
+            "id": 27,
             "text": "If you have had any type of fractures, where have these been located? Check all that apply.",
             "type": "checkbox",
             "options": [
@@ -132,7 +307,7 @@ def get_questions():
             "category": "injuries"
         },
         {
-            "id": 13,
+            "id": 28,
             "text": "Are you vegetarian?",
             "type": "multiple_choice",
             "options": [
@@ -143,7 +318,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 14,
+            "id": 29,
             "text": "Are you vegan?",
             "type": "multiple_choice",
             "options": [
@@ -154,7 +329,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 15,
+            "id": 30,
             "text": "Do you exclude carbohydrates from your diet?",
             "type": "multiple_choice",
             "options": [
@@ -165,7 +340,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 16,
+            "id": 31,
             "text": "Do you smoke?",
             "type": "multiple_choice",
             "options": [
@@ -176,7 +351,7 @@ def get_questions():
             "category": "physical"
         },
         {
-            "id": 17,
+            "id": 32,
             "text": "How would you rate your levels of freshness over the past year?",
             "type": "scale",
             "min": 1,
@@ -186,7 +361,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 18,
+            "id": 33,
             "text": "How would you rate your sleep quality over the past year?",
             "type": "scale",
             "min": 1,
@@ -196,7 +371,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 19,
+            "id": 34,
             "text": "How would you rate your digestive system over the past year?",
             "type": "scale",
             "min": 1,
@@ -206,7 +381,7 @@ def get_questions():
             "category": "physiological"
         },
         {
-            "id": 20,
+            "id": 35,
             "text": "How does controlling what you eat affect the way you feel about yourself?",
             "type": "multiple_choice",
             "options": [
@@ -221,7 +396,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 21,
+            "id": 36,
             "text": "How does controlling what you weigh affect the way you feel about yourself?",
             "type": "multiple_choice",
             "options": [
@@ -236,7 +411,7 @@ def get_questions():
             "category": "psychological"
         },
         {
-            "id": 22,
+            "id": 37,
             "text": "Have you ever been diagnosed with an eating disorder?",
             "type": "multiple_choice",
             "options": [
