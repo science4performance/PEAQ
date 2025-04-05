@@ -132,20 +132,63 @@ def display_questionnaire():
         # Set default values for questions 1, 2, and 3
         if question["id"] == 1:  # Height
             default_value = (1.2 + 2.2) / 2  # 1.7m
+            
+            # Input with validation for height (float value)
+            value = st.number_input(
+                label,
+                min_value=float(question["min"]),
+                max_value=float(question["max"]),
+                value=float(default_value),
+                step=0.01,
+                key=f"q{current_q}"
+            )
         elif question["id"] == 2:  # Current weight
             default_value = (30 + 100) / 2  # 65kg
+            
+            # Input with validation for weight (float value)
+            value = st.number_input(
+                label,
+                min_value=float(question["min"]),
+                max_value=float(question["max"]),
+                value=float(default_value),
+                step=0.01,
+                key=f"q{current_q}"
+            )
         elif question["id"] == 3:  # Lowest weight
             default_value = (30 + 100) / 2  # 65kg
             
-        # Input with validation
-        value = st.number_input(
-            label,
-            min_value=float(question["min"]),
-            max_value=float(question["max"]),
-            value=float(default_value),
-            step=0.01,
-            key=f"q{current_q}"
-        )
+            # Input with validation for lowest weight (float value)
+            value = st.number_input(
+                label,
+                min_value=float(question["min"]),
+                max_value=float(question["max"]),
+                value=float(default_value),
+                step=0.01,
+                key=f"q{current_q}"
+            )
+        elif question["id"] in [4, 7, 8, 9, 10, 11]:  # Integer questions
+            # Calculate midpoint for default value
+            default_value = int((question["min"] + question["max"]) / 2)
+            
+            # Input with validation for integer values
+            value = st.number_input(
+                label,
+                min_value=int(question["min"]),
+                max_value=int(question["max"]),
+                value=int(default_value),
+                step=1,
+                key=f"q{current_q}"
+            )
+        else:
+            # Default numeric input handling with float values
+            value = st.number_input(
+                label,
+                min_value=float(question["min"]),
+                max_value=float(question["max"]),
+                value=float(default_value),
+                step=0.01,
+                key=f"q{current_q}"
+            )
         
         if st.button("Next", key=f"next_{current_q}"):
             # We don't calculate a score for numeric inputs, just store the value
@@ -213,6 +256,11 @@ def display_results():
     with metrics_col3:
         if lowest_weight_value is not None:
             st.metric("Lowest Weight", f"{lowest_weight_value} kg")
+    
+    # Display weighing frequency if available
+    if 3 in st.session_state.answers:
+        weighing_frequency = st.session_state.answers[3].get("value")
+        st.metric("Weighing Frequency", f"{int(weighing_frequency)} times/week")
     
     # Calculate BMI if both height and weight are available
     if height_value and weight_value:
@@ -490,6 +538,11 @@ def display_previous_assessments():
                     with metrics_col3:
                         if lowest_weight_value is not None:
                             st.metric("Lowest Weight", f"{lowest_weight_value} kg")
+                    
+                    # Display weighing frequency if available
+                    if 3 in selected['answers']:
+                        weighing_frequency = selected['answers'][3].get("value")
+                        st.metric("Weighing Frequency", f"{int(weighing_frequency)} times/week")
                     
                     # Calculate BMI if both height and weight are available
                     if height_value and weight_value:
