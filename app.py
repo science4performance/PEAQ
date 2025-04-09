@@ -159,25 +159,25 @@ def main():
         st.image(PIC_DIR / "PEAQ3.png")
 
         # Sidebar
-    with st.sidebar:
-        st.title("Navigation")
+    # with st.sidebar:
+    #     st.title("Navigation")
 
-        if st.button("Start New Assessment"):
-            reset_assessment()
-            st.rerun()
+    #     if st.button("Start New Assessment"):
+    #         reset_assessment()
+    #         st.rerun()
 
-        if st.button("View Previous Assessments"):
-            st.session_state.show_previous = True
-            st.session_state.assessment_complete = False
-            st.rerun()
-        if st.button("Load Dataset"):
-            st.session_state.user_id = '45a07288-caec-43f3-9191-1421ddff5aa9'
-            st.session_state.assessment_id = '0bc96938-33e4-40d6-836c-2f374949697c'
-            selected = get_assessment(st.session_state.user_id, st.session_state.assessment_id)
-            st.session_state.sex = selected['sex']
-            st.session_state.answers = selected['answers']
-            st.session_state.assessment_complete = True
-            #st.write(selected)
+    #     if st.button("View Previous Assessments"):
+    #         st.session_state.show_previous = True
+    #         st.session_state.assessment_complete = False
+    #         st.rerun()
+    #     if st.button("Load Dataset"):
+    #         st.session_state.user_id = '45a07288-caec-43f3-9191-1421ddff5aa9'
+    #         st.session_state.assessment_id = '0bc96938-33e4-40d6-836c-2f374949697c'
+    #         selected = get_assessment(st.session_state.user_id, st.session_state.assessment_id)
+    #         st.session_state.sex = selected['sex']
+    #         st.session_state.answers = selected['answers']
+    #         st.session_state.assessment_complete = True
+    #         #st.write(selected)
            
 
 
