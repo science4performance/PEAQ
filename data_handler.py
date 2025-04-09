@@ -3,6 +3,7 @@ import os
 import uuid
 import datetime
 from pathlib import Path
+from fpdf import FPDF
 
 # Create data directory if it doesn't exist
 DATA_DIR = Path("./data")
@@ -25,7 +26,7 @@ def datetime_decoder(json_dict):
                 pass
     return json_dict
 
-def save_assessment(user_id, answers, scores, overall_score, timestamp):
+def save_assessment(user_id, sex, answers, scores, overall_score, interpretation, timestamp):
     """
     Save the assessment results to a JSON file.
     
@@ -48,9 +49,11 @@ def save_assessment(user_id, answers, scores, overall_score, timestamp):
         "id": assessment_id,
         "user_id": user_id,
         "timestamp": timestamp,
+        "sex": sex,
         "answers": answers,
         "scores": scores,
-        "overall_score": overall_score
+        "overall_score": overall_score,
+        "interpretation": interpretation
     }
     
     # Save assessment to file
@@ -142,3 +145,52 @@ def get_assessment(user_id, assessment_id):
         assessment = json.load(f, object_hook=datetime_decoder)
     
     return assessment
+
+def create_pdf(user_id, sex, overall_score, interpretation, comment):
+    # # Create a PDF object
+    user_dir = DATA_DIR / user_id
+    user_dir.mkdir(exist_ok=True)
+    pdf = FPDF()
+    pdf.add_page()
+    # Heading
+    pdf.set_font("Arial", style="B", size=20, )
+    pdf.set_xy(10,20)
+    pdf.cell(180,10,txt=f"{sex if sex != 'None' else ''} Personal Energy Availability Questionnaire (PEAQ)\n\n")
+
+    # Subheading
+    pdf.set_font("Arial", style="B", size=16)
+    pdf.write( 10, txt="Your Personal Energy Availability Results\n")
+    pdf.set_font("Arial",  size=12)
+    pdf.write(8, txt=comment)
+    # Label charts
+    pdf.set_font("Arial", style="B", size=16)    
+    pdf.cell(20,10)
+    pdf.cell(80, 10, txt=f"REDs Risk Score: {overall_score:+.0f}")
+    pdf.cell(10,)
+    pdf.cell(80,10, txt="Category Breakdown")
+    pdf.image(f'{user_dir/"overall.jpeg"}', x=0, y=90, w=100)
+    pdf.image(f'{user_dir/"categories.jpeg"}', x=100, y=90, w=100)
+    # Add the interpretation text
+    pdf.set_font("Arial",  size=12)
+    pdf.set_xy(10, 140)
+    pdf.write(8, txt=f"Interpretation: {interpretation}"+"\n\n")
+    #pdf.set_xy(10, 140)
+    
+    pdf.write(8, "If you would like more information about energy availability and relative energy deficiency you may wish to have a look at ")
+    pdf.set_text_color(0,0,255)  
+    pdf.write(8,"nickykeayfitness.com ", link="https://nickykeayfitness.com")
+    pdf.set_text_color(0,0,0)
+    pdf.write(8, "and read Dr Nicky Keay's book ")
+    pdf.set_text_color(0,0,255)  
+    pdf.write(8,'Hormones, Health and Human Potential', link="https://hhhp.neocities.org/")
+    pdf.set_text_color(0,0,0)
+    pdf.write(8, "\nFor individual, personal advice, Dr Nicky Keay offers ")
+    pdf.set_text_color(0,0,255)  
+    pdf.write(8, "health advisory appointments", link="https://nickykeayfitness.com/appointments/")
+    #pdf.set_xy(10, 140)
+   
+    pdf.image("pics/PEAQw.png", x=0, y=210, w=210)
+    pdf.set_xy(10, 260)
+    pdf.set_text_color(0,0,0)
+    pdf.write(8,f"PEAQ id: {user_id}")
+    pdf.output(user_dir/"PEAQ_results.pdf")  # Save the PDF to a 

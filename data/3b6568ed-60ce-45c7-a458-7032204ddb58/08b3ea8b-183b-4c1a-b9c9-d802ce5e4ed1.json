@@ -1,0 +1,116 @@
+{
+    "id": "08b3ea8b-183b-4c1a-b9c9-d802ce5e4ed1",
+    "user_id": "3b6568ed-60ce-45c7-a458-7032204ddb58",
+    "timestamp": "2025-04-05T22:24:28.289922",
+    "answers": {
+        "0": {
+            "answer": 1.7000000000000002,
+            "value": 1.7000000000000002,
+            "unit": "m",
+            "category": "physical"
+        },
+        "1": {
+            "answer": 65.0,
+            "value": 65.0,
+            "unit": "kg",
+            "category": "physical"
+        },
+        "2": {
+            "answer": 65.0,
+            "value": 65.0,
+            "unit": "kg",
+            "category": "physical"
+        },
+        "3": {
+            "answer": 0,
+            "value": 0,
+            "unit": "times",
+            "category": "psychological"
+        },
+        "4": {
+            "answer": "4 or more times",
+            "score": 1,
+            "category": "physiological"
+        },
+        "5": {
+            "answer": "0 to 6 days",
+            "score": 0,
+            "category": "physical"
+        },
+        "6": {
+            "answer": "None",
+            "score": 0,
+            "category": "physical"
+        },
+        "7": {
+            "answer": "None",
+            "score": 0,
+            "category": "physical"
+        },
+        "8": {
+            "answer": "None",
+            "score": 0,
+            "category": "physical"
+        },
+        "9": {
+            "answer": [],
+            "category": "physical"
+        },
+        "10": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        },
+        "11": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        },
+        "12": {
+            "answer": "No",
+            "score": 0,
+            "category": "psychological"
+        },
+        "13": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        },
+        "14": {
+            "answer": 1,
+            "score": 0.0,
+            "category": "physiological"
+        },
+        "15": {
+            "answer": 1,
+            "score": 0.0,
+            "category": "physiological"
+        },
+        "16": {
+            "answer": 1,
+            "score": 0.0,
+            "category": "physiological"
+        },
+        "17": {
+            "answer": "Doesn't affect me",
+            "score": 2,
+            "category": "psychological"
+        },
+        "18": {
+            "answer": "Doesn't affect me",
+            "score": 2,
+            "category": "psychological"
+        },
+        "19": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        }
+    },
+    "scores": {
+        "physiological": 0.25,
+        "physical": 0.0,
+        "psychological": 1.1428571428571428
+    },
+    "overall_score": 0.46428571428571425
+}

@@ -1,0 +1,126 @@
+{
+    "id": "4c907d42-cab2-4dfa-aa35-3a0168968558",
+    "user_id": "3b6568ed-60ce-45c7-a458-7032204ddb58",
+    "timestamp": "2025-04-05T22:46:57.579662",
+    "answers": {
+        "0": {
+            "answer": 1.6500000000000001,
+            "value": 1.6500000000000001,
+            "unit": "m",
+            "category": "physical"
+        },
+        "1": {
+            "answer": 60.0,
+            "value": 60.0,
+            "unit": "kg",
+            "category": "physical"
+        },
+        "2": {
+            "answer": 45.0,
+            "value": 45.0,
+            "unit": "kg",
+            "category": "physical"
+        },
+        "3": {
+            "answer": 0,
+            "value": 0,
+            "unit": "times",
+            "category": "psychological"
+        },
+        "4": {
+            "answer": "16 or older",
+            "score": -1,
+            "category": "physiological"
+        },
+        "5": {
+            "answer": "No (less than 9 per calendar year)",
+            "score": -1,
+            "category": "physiological"
+        },
+        "6": {
+            "answer": "Yes, it has happened before",
+            "score": -1,
+            "category": "physiological"
+        },
+        "7": {
+            "answer": "7 to 13 days",
+            "score": -1,
+            "category": "physical"
+        },
+        "8": {
+            "answer": "Two or more",
+            "score": -2,
+            "category": "physical"
+        },
+        "9": {
+            "answer": "One",
+            "score": 0,
+            "category": "physical"
+        },
+        "10": {
+            "answer": "None",
+            "score": 0,
+            "category": "physical"
+        },
+        "11": {
+            "answer": [],
+            "category": "physical"
+        },
+        "12": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        },
+        "13": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        },
+        "14": {
+            "answer": "No",
+            "score": 0,
+            "category": "psychological"
+        },
+        "15": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        },
+        "16": {
+            "answer": 3,
+            "score": 4.0,
+            "category": "physiological"
+        },
+        "17": {
+            "answer": 3,
+            "score": 4.0,
+            "category": "physiological"
+        },
+        "18": {
+            "answer": 4,
+            "score": 6.0,
+            "category": "physiological"
+        },
+        "19": {
+            "answer": "On my mind",
+            "score": 0,
+            "category": "psychological"
+        },
+        "20": {
+            "answer": "On my mind",
+            "score": 0,
+            "category": "psychological"
+        },
+        "21": {
+            "answer": "Yes",
+            "score": -2,
+            "category": "psychological"
+        }
+    },
+    "scores": {
+        "physiological": 1.8333333333333333,
+        "physical": -0.75,
+        "psychological": 0.14285714285714285
+    },
+    "overall_score": 0.40873015873015867
+}

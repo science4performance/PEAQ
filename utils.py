@@ -11,10 +11,23 @@ def calculate_scores(answers):
     category_scores = {}
     category_counts = {}
     
+    # category = "physical"
+    # # Add BMI score to the physical category
+    # if category in category_scores:
+    #     category_scores[category] += bmi_score + lowest_bmi_score
+    #     category_counts[category] += 2
+    # else:
+    #     category_scores[category] = bmi_score + lowest_bmi_score
+    #     category_counts[category] = 2
+
+
     # Sum scores by category
     for q_idx, answer_data in answers.items():
         category = answer_data["category"]
         
+        # Skip info category
+        if category == "info":
+            continue
         # Skip numeric input questions which don't have scores
         if "score" not in answer_data:
             continue
@@ -29,11 +42,11 @@ def calculate_scores(answers):
             category_counts[category] = 1
     
     # Calculate average for each category
-    average_scores = {}
-    for category, total in category_scores.items():
-        average_scores[category] = total / category_counts[category]
+    #average_scores = {}
+    #for category, total in category_scores.items():
+    #    average_scores[category] = total / category_counts[category]
     
-    return average_scores
+    return category_scores
 
 def get_interpretation(overall_score):
     """
@@ -45,15 +58,9 @@ def get_interpretation(overall_score):
     Returns:
         String with interpretation of the score
     """
-    if overall_score >= 8.5:
-        return "Excellent: Your overall health appears to be exceptionally good. You're making great choices that support your well-being."
-    elif overall_score >= 7:
-        return "Very Good: Your health metrics show strong results. Continue with your current healthy practices while looking for small areas to improve."
-    elif overall_score >= 5.5:
-        return "Good: Your health is generally good, but there's room for improvement in some areas. Review your category scores to identify areas for focus."
-    elif overall_score >= 4:
-        return "Fair: Your health assessment indicates some concerns. Consider making lifestyle adjustments in the lower-scoring categories."
-    elif overall_score >= 2.5:
-        return "Concerning: Several aspects of your health appear to need attention. Consider consulting with healthcare professionals about the categories with lower scores."
+    if overall_score >= 5:
+        return "Reassuring result, suggesting that you have a healthy balance between training load, nutrition and recovery. Looking forwards, you may wish to consider seeking advice on future maintenance and improvement."
+    elif overall_score >= -3:
+        return "Room for improvement, suggesting some areas could be better. You should consider seeking expert help to explore ways to improve your health and performance."
     else:
-        return "Poor: Your assessment results suggest significant health concerns. We strongly recommend consulting with healthcare professionals to create an improvement plan."
+        return "Potential concern, suggesting that you may need to address imbalances between you training load, nutrition and recovery.  You are strongly advised to consider seeking expert help to explore ways to improve your health and performance."

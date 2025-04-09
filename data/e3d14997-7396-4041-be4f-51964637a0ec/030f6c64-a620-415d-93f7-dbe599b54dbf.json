@@ -1,0 +1,157 @@
+{
+    "id": "030f6c64-a620-415d-93f7-dbe599b54dbf",
+    "user_id": "e3d14997-7396-4041-be4f-51964637a0ec",
+    "timestamp": "2025-04-07T14:42:51.206552",
+    "answers": {
+        "0": {
+            "answer": 25,
+            "value": 25,
+            "unit": "years",
+            "category": "info"
+        },
+        "1": {
+            "answer": "Dance",
+            "score": 0,
+            "category": "info"
+        },
+        "2": {
+            "answer": "0-5",
+            "score": 0,
+            "category": "info"
+        },
+        "3": {
+            "answer": "Relieved, I need more rest",
+            "score": 0,
+            "category": "info"
+        },
+        "4": {
+            "answer": 1.65,
+            "value": 1.65,
+            "unit": "m",
+            "category": "info"
+        },
+        "5": {
+            "answer": 65,
+            "value": 65,
+            "unit": "kg",
+            "category": "info"
+        },
+        "6": {
+            "answer": 60,
+            "value": 60,
+            "unit": "kg",
+            "category": "info"
+        },
+        "7": {
+            "answer": "Never",
+            "score": 0,
+            "category": "psychological"
+        },
+        "8": {
+            "answer": "13 or younger",
+            "score": 1,
+            "category": "physiological"
+        },
+        "9": {
+            "answer": "I am on hormonal contraception or HRT so I don't have natural menstrual periods",
+            "score": 0,
+            "category": "physiological"
+        },
+        "10": {
+            "answer": "No, never",
+            "score": 1,
+            "category": "physiological"
+        },
+        "11": {
+            "answer": "0 to 6 days",
+            "score": 0,
+            "category": "physical"
+        },
+        "12": {
+            "answer": "None",
+            "score": 0,
+            "category": "physical"
+        },
+        "13": {
+            "answer": "None",
+            "score": 0,
+            "category": "physical"
+        },
+        "14": {
+            "answer": "None",
+            "score": 0,
+            "category": "physical"
+        },
+        "15": {
+            "answer": [],
+            "score": 0,
+            "category": "physical"
+        },
+        "16": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        },
+        "17": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        },
+        "18": {
+            "answer": "No",
+            "score": 0,
+            "category": "psychological"
+        },
+        "19": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        },
+        "20": {
+            "answer": "Extremely fatigued",
+            "score": -2,
+            "category": "physiological"
+        },
+        "21": {
+            "answer": "Terrible",
+            "score": -2,
+            "category": "physiological"
+        },
+        "22": {
+            "answer": "Terrible",
+            "score": -2,
+            "category": "physiological"
+        },
+        "23": {
+            "answer": "Doesn't affect me",
+            "score": 2,
+            "category": "psychological"
+        },
+        "24": {
+            "answer": "Doesn't affect me",
+            "score": 2,
+            "category": "psychological"
+        },
+        "25": {
+            "answer": "No",
+            "score": 1,
+            "category": "psychological"
+        },
+        "100": {
+            "answer": 23.875114784205696,
+            "score": 0,
+            "category": "physical"
+        },
+        "101": {
+            "answer": 22.03856749311295,
+            "score": 0,
+            "category": "physical"
+        }
+    },
+    "scores": {
+        "psychological": 8,
+        "physiological": -4,
+        "physical": 0
+    },
+    "overall_score": 4
+}
