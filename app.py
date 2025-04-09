@@ -24,7 +24,7 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
+PIC_DIR = Path("./pics")
 
 # Initialize session state variables if they don't exist
 if 'current_question' not in st.session_state:
@@ -137,7 +137,7 @@ def main():
                         ,
                 unsafe_allow_html=True)
         with col2:
-            st.image("pics/NK.jpg", width=200)
+            st.image(PIC_DIR / "NK.jpg", width=200)
 
         
 
@@ -149,14 +149,14 @@ def main():
                 ,
                 unsafe_allow_html=True)
         with col2:
-            st.image("pics/GF.jpeg", width=200)
+            st.image(PIC_DIR / "GF.jpeg", width=200)
         st.subheader("Benefits of the PEAQ")
         st.markdown(
            "Your personal report instantly generates a REDs Risk Score and provides valuable insights into your energy status and potential risks, along with guidance. The PEAQ is intended for those 16 years of age and over. <br>"
             "The PEAQ has been used in several published research studies; however, it is not a substitute for seeking medical advice. Dr Nicky Keay offers personalised health advisory appointments https://nickykeayfitness.com/appointments/."
            ,
              unsafe_allow_html=True)
-        st.image("pics/PEAQ3.png")
+        st.image(PIC_DIR / "PEAQ3.png")
 
         # Sidebar
     with st.sidebar:
