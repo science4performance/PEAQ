@@ -427,7 +427,11 @@ def display_results():
              "Sharp S, Keay N, Slee A. Body composition, malnutrition, and ovulation status as RED-S risk assessors in female endurance athletes, Clinical Nutrition ESPEN 2023, 58 :720-721<br>"
              "Keay N, Craghill E, Francis G Female Football Specific Energy Availability Questionnaire and Menstrual Cycle Hormone Monitoring. Sports Injr Med 2022; 6: 177<br>"
              "Nicola Keay, Martin Lanfear, Gavin Francis. Clinical application of monitoring indicators of female dancer health, including application of artificial intelligence in female hormone networks. Internal Journal of Sports Medicine and Rehabilitation, 2022; 5:24.<br>"  
-             "Nicola Keay, Martin Lanfear, Gavin Francis. Clinical application of interactive monitoring of indicators of health in professional dancers J Forensic Biomech, 2022, 12 (5) No:1000380 " 
+             "Nicola Keay, Martin Lanfear, Gavin Francis. Clinical application of interactive monitoring of indicators of health in professional dancers J Forensic Biomech, 2022, 12 (5) No:1000380 <br>"
+             "Keay, Francis, Hind  Low energy availability assessed by a sport-specific questionnaire and clinical interview indicative of bone health, endocrine profile and cycling performance in competitive male cyclists BMJ Open Sports and Exercise Medicine 2018<br>"
+             "Keay, Francis, Hind  Clinical evaluation of education relating to nutrition and skeletal loading in competitive male road cyclists at risk of relative energy deficiency in sports (RED-S): 6-month randomised controlled trial  BMJ Open Sports and Exercise Medicine 2019<br>"
+             "Keay, Francis, Hind  Bone health risk assessment in a clinical setting: an evaluation of a new screening tool for active populations  MOJSports Medicine 2022;5(3):84-88. doi: 10.15406/mojsm.2022.05.00125" 
+
             , unsafe_allow_html=True)
 
 
