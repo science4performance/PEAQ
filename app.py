@@ -4,8 +4,8 @@ import uuid
 import datetime
 from questions import get_female_questions, get_male_questions, get_categories
 from utils import calculate_scores, get_interpretation
-from data_handler import save_assessment, load_assessments, get_assessment, create_pdf
-from visualization import create_radar_chart, create_category_bar_chart, overall_fig
+from data_handler import save_assessment, create_pdf
+from visualization import  create_category_bar_chart, overall_fig
 from pathlib import Path
 
 
@@ -338,16 +338,17 @@ def display_results():
     # Get interpretation
     interpretation = get_interpretation(overall_score)
 
-    # Save assessment
+   # Save assessment
     if not Path(f"data/{st.session_state.user_id}/PEAQ_results.pdf").exists():
-        st.write(Path(f"data/{st.session_state.user_id}/PEAQ_results.pdf"))
-        save_assessment(user_id=st.session_state.user_id,
+        #st.write(Path(f"data/{st.session_state.user_id}/PEAQ_results.pdf"))
+        st.session_state['assessment_id'] = save_assessment(user_id=st.session_state.user_id,
                         sex=st.session_state.sex,
                         answers=st.session_state.answers,
                         scores=scores_by_category,
                         overall_score=overall_score,
                         interpretation=interpretation,
                         timestamp=datetime.datetime.now())
+   
 
     # Display overall score
     col1, col2 = st.columns(2)
@@ -369,7 +370,7 @@ def display_results():
     
     st.markdown(final_comment1 , unsafe_allow_html=True)
     st.markdown(final_comment2 , unsafe_allow_html=True)
-
+ 
     # Export options
     #export_format = st.selectbox("Export Format", ["CSV", "JSON"])
     #if st.button("Export Results"):
@@ -383,7 +384,9 @@ def display_results():
     #                     data=csv,
     #                     file_name="health_assessment_results.csv",
     #                     mime="text/csv")
-    create_pdf(user_id=st.session_state.user_id, sex=st.session_state.sex, 
+    create_pdf(user_id=st.session_state.user_id, 
+               assessment_id=st.session_state.assessment_id, 
+               sex=st.session_state.sex, 
                      overall_score=overall_score, interpretation=interpretation, comment=comment)
     
 

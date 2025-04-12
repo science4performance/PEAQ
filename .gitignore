@@ -1,0 +1,6 @@
+# Ignore secrets
+.streamlit/secrets.toml
+
+PEAQ.code-workspace
+
+AWS.ipynb

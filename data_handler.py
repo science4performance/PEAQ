@@ -4,6 +4,18 @@ import uuid
 import datetime
 from pathlib import Path
 from fpdf import FPDF
+import streamlit as st
+
+# This relies on AWS credentials being stored in .streamlit/secrets.toml or Streamlit Community Cloud app secrets
+
+from st_files_connection import FilesConnection
+
+# Create connection object 
+conn = st.connection('s3', type=FilesConnection)
+AWS_DIR = Path("peaq-streamlit/data")
+
+
+
 
 # Create data directory if it doesn't exist
 DATA_DIR = Path("./data")
@@ -57,96 +69,96 @@ def save_assessment(user_id, sex, answers, scores, overall_score, interpretation
     }
     
     # Save assessment to file
-    file_path = user_dir / f"{assessment_id}.json"
-    with open(file_path, 'w') as f:
+    file_path = AWS_DIR / f"{assessment_id}.json"
+    with conn.open(file_path, 'w') as f:
         json.dump(assessment_data, f, cls=DateTimeEncoder, indent=4)
     
     # Update assessment index
-    index_path = user_dir / "index.json"
+    # index_path = user_dir / "index.json"
     
-    if index_path.exists():
-        with open(index_path, 'r') as f:
-            index = json.load(f)
-    else:
-        index = []
+    # if index_path.exists():
+    #     with open(index_path, 'r') as f:
+    #         index = json.load(f)
+    # else:
+    #     index = []
     
-    # Add this assessment to the index
-    index.append({
-        "id": assessment_id,
-        "timestamp": timestamp.isoformat(),
-        "overall_score": overall_score
-    })
+    # # Add this assessment to the index
+    # index.append({
+    #     "id": assessment_id,
+    #     "timestamp": timestamp.isoformat(),
+    #     "overall_score": overall_score
+    # })
     
-    # Sort index by timestamp (newest first)
-    index.sort(key=lambda x: x["timestamp"], reverse=True)
+    # # Sort index by timestamp (newest first)
+    # index.sort(key=lambda x: x["timestamp"], reverse=True)
     
-    # Save updated index
-    with open(index_path, 'w') as f:
-        json.dump(index, f, indent=4)
+    # # Save updated index
+    # with open(index_path, 'w') as f:
+    #     json.dump(index, f, indent=4)
     
     return assessment_id
 
-def load_assessments(user_id):
-    """
-    Load all assessments for a given user.
+# def load_assessments(user_id):
+#     """
+#     Load all assessments for a given user.
     
-    Args:
-        user_id: Unique identifier for the user
+#     Args:
+#         user_id: Unique identifier for the user
         
-    Returns:
-        List of assessment data dictionaries, sorted by timestamp (newest first)
-    """
-    user_dir = DATA_DIR / user_id
+#     Returns:
+#         List of assessment data dictionaries, sorted by timestamp (newest first)
+#     """
+#     user_dir = DATA_DIR / user_id
     
-    if not user_dir.exists():
-        return []
+#     if not user_dir.exists():
+#         return []
     
-    # Load assessment index
-    index_path = user_dir / "index.json"
-    if not index_path.exists():
-        return []
+#     # Load assessment index
+#     index_path = user_dir / "index.json"
+#     if not index_path.exists():
+#         return []
     
-    with open(index_path, 'r') as f:
-        index = json.load(f)
+#     with open(index_path, 'r') as f:
+#         index = json.load(f)
     
-    # Load full assessment data for each entry in the index
-    assessments = []
-    for entry in index:
-        assessment_id = entry["id"]
-        file_path = user_dir / f"{assessment_id}.json"
+#     # Load full assessment data for each entry in the index
+#     assessments = []
+#     for entry in index:
+#         assessment_id = entry["id"]
+#         file_path = user_dir / f"{assessment_id}.json"
         
-        if file_path.exists():
-            with open(file_path, 'r') as f:
-                assessment = json.load(f, object_hook=datetime_decoder)
-                assessments.append(assessment)
+#         if file_path.exists():
+#             with open(file_path, 'r') as f:
+#                 assessment = json.load(f, object_hook=datetime_decoder)
+#                 assessments.append(assessment)
     
-    # Sort by timestamp (newest first)
-    assessments.sort(key=lambda x: x["timestamp"], reverse=True)
+#     # Sort by timestamp (newest first)
+#     assessments.sort(key=lambda x: x["timestamp"], reverse=True)
     
-    return assessments
+#     return assessments
 
-def get_assessment(user_id, assessment_id):
-    """
-    Retrieve a specific assessment by ID.
+# def get_assessment(user_id, assessment_id):
+#     """
+#     Retrieve a specific assessment by ID.
     
-    Args:
-        user_id: Unique identifier for the user
-        assessment_id: Unique identifier for the assessment
+#     Args:
+#         user_id: Unique identifier for the user
+#         assessment_id: Unique identifier for the assessment
         
-    Returns:
-        Assessment data dictionary or None if not found
-    """
-    file_path = DATA_DIR / user_id / f"{assessment_id}.json"
+#     Returns:
+#         Assessment data dictionary or None if not found
+#     """
+#     file_path = DATA_DIR / user_id / f"{assessment_id}.json"
     
-    if not file_path.exists():
-        return None
+#     if not file_path.exists():
+#         return None
     
-    with open(file_path, 'r') as f:
-        assessment = json.load(f, object_hook=datetime_decoder)
+#     with open(file_path, 'r') as f:
+#         assessment = json.load(f, object_hook=datetime_decoder)
     
-    return assessment
+#     return assessment
 
-def create_pdf(user_id, sex, overall_score, interpretation, comment):
+def create_pdf(user_id, assessment_id, sex, overall_score, interpretation, comment):
     # # Create a PDF object
     user_dir = DATA_DIR / user_id
     user_dir.mkdir(exist_ok=True)
@@ -192,5 +204,5 @@ def create_pdf(user_id, sex, overall_score, interpretation, comment):
     pdf.image("pics/PEAQw.png", x=0, y=210, w=210)
     pdf.set_xy(10, 260)
     pdf.set_text_color(0,0,0)
-    pdf.write(8,f"PEAQ id: {user_id}")
+    pdf.write(8,f"PEAQ id: {assessment_id}")
     pdf.output(user_dir/"PEAQ_results.pdf")  # Save the PDF to a 
