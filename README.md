@@ -16,3 +16,6 @@ People of any age, whatever their level and type of exercise, can be at risk of 
 Your personal report instantly generates a REDs Risk Score and provides valuable insights into your energy status and potential risks, along with guidance. The PEAQ is intended for those 16 years of age and over.
 The PEAQ has been used in several published research studies; however, it is not a substitute for seeking medical advice. Dr Nicky Keay offers personalised health advisory appointments https://nickykeayfitness.com/appointments/.
 
+
+![Alt text](./pics/PEAQw.png?raw=true "PEAQ")
+
