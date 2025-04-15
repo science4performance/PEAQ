@@ -4,3 +4,7 @@
 PEAQ.code-workspace
 
 AWS.ipynb
+
+data/
+
+PEAQ_DB.pkl

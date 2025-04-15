@@ -73,28 +73,6 @@ def save_assessment(user_id, sex, answers, scores, overall_score, interpretation
     with conn.open(file_path, 'w') as f:
         json.dump(assessment_data, f, cls=DateTimeEncoder, indent=4)
     
-    # Update assessment index
-    # index_path = user_dir / "index.json"
-    
-    # if index_path.exists():
-    #     with open(index_path, 'r') as f:
-    #         index = json.load(f)
-    # else:
-    #     index = []
-    
-    # # Add this assessment to the index
-    # index.append({
-    #     "id": assessment_id,
-    #     "timestamp": timestamp.isoformat(),
-    #     "overall_score": overall_score
-    # })
-    
-    # # Sort index by timestamp (newest first)
-    # index.sort(key=lambda x: x["timestamp"], reverse=True)
-    
-    # # Save updated index
-    # with open(index_path, 'w') as f:
-    #     json.dump(index, f, indent=4)
     
     return assessment_id
 

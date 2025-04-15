@@ -369,19 +369,7 @@ def display_results():
     st.markdown(final_comment1 , unsafe_allow_html=True)
     st.markdown(final_comment2 , unsafe_allow_html=True)
  
-    # Export options
-    #export_format = st.selectbox("Export Format", ["CSV", "JSON"])
-    #if st.button("Export Results"):
-    #    if export_format == "CSV":
-    # df = pd.DataFrame({
-    #     'Category': list(scores_by_category.keys()),
-    #     'Score': list(scores_by_category.values())
-    # })
-    # csv = df.to_csv(index=False)
-    # st.download_button(label="Download CSV",
-    #                     data=csv,
-    #                     file_name="health_assessment_results.csv",
-    #                     mime="text/csv")
+    
     create_pdf(user_id=st.session_state.user_id, 
                assessment_id=st.session_state.assessment_id, 
                sex=st.session_state.sex, 
@@ -400,20 +388,7 @@ def display_results():
             file_name="PEAQ_results.pdf",
             mime="application/pdf"
         )
-            #else:
-         #   import json
-         #   export_data = {
-          #      'user_id': st.session_state.user_id,
-           #     'timestamp': datetime.datetime.now().isoformat(),
-            #    'overall_score': overall_score,
-            #     'categories': dict(scores_by_category),
-            #     'interpretation': interpretation
-            # }
-            # json_str = json.dumps(export_data, indent=4)
-            # st.download_button(label="Download JSON",
-            #                    data=json_str,
-            #                    file_name="health_assessment_results.json",
-            #                    mime="application/json")
+            
     st.image("pics/PEAQ3.png")
 
     st.subheader("References")

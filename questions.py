@@ -25,7 +25,7 @@ def get_female_questions():
         "text": "What is your main exercise type?",
         "type": "multiple_choice",
         "options": ["Dance", "Running", "Cycling", "Triathlon", "Football", "Rugby", "Rowing", "Climbing", "Tennis", "Swimming",  "Other"],
-        "scores": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "scores": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "category": "info"
     }, {
         "id": 3,
@@ -256,7 +256,7 @@ def get_male_questions():
         "text": "What is your main exercise type?",
         "type": "multiple_choice",
         "options": ["Dance", "Running", "Cycling", "Triathlon", "Football", "Rugby", "Rowing", "Climbing", "Tennis", "Swimming",  "Other"],
-        "scores": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "scores": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "category": "info"
     }, {
         "id": 3,
