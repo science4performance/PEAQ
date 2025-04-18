@@ -73,7 +73,7 @@ def get_female_questions():
         "step": 1
     }, {
         "id": 8,
-        "text": "How often do you weight yourself per week?",
+        "text": "How often do you weigh yourself per week?",
         "type": "multiple_choice",
         "options": ["Never", "1 to 6 times", "7 or more"],
         "scores": [0, 0, -1],
@@ -304,7 +304,7 @@ def get_male_questions():
         "step": 1
     }, {
         "id": 8,
-        "text": "How often do you weight yourself per week?",
+        "text": "How often do you weigh yourself per week?",
         "type": "multiple_choice",
         "options": ["Never", "1 to 6 times", "7 or more"],
         "scores": [0, 0, -1],
