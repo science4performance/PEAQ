@@ -8,9 +8,8 @@ from data_handler import save_assessment, create_pdf
 from visualization import  create_category_bar_chart, overall_fig
 from pathlib import Path
 
-st.set_page_config(page_title="Personal Energy Availability Questionnaire",
-                   page_icon="🏥",
-                   layout="wide")
+st.set_page_config(page_title="Personal Energy Availability Questionnaire", page_icon="🏥", layout="wide")
+
 st.markdown(
     """
     <style>
