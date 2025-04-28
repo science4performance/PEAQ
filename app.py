@@ -124,7 +124,8 @@ def main():
             
         
         st.markdown(
-            "The personal energy availability questionnaire (PEAQ) is designed to assess your energy availability status. Click on a button to begin.")
+            'The personal energy availability questionnaire (PEAQ) is designed to assess your energy availability status, created by <a href="https://nickykeayfitness.com/about/">Dr Nicky Keay</a>  based on her <a href="https://bmjopensem.bmj.com/content/6/1/e000906">published research</a>. Click on a button to begin.',unsafe_allow_html=True)
+        
         st.subheader("What is Energy Availability?")
         col1, col2 = st.columns([3, 1])
         with col1:
