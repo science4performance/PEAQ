@@ -24,8 +24,8 @@ def get_female_questions():
         "id": 2,
         "text": "What is your main exercise type?",
         "type": "multiple_choice",
-        "options": ["Dance", "Running", "Cycling", "Triathlon", "Football", "Rugby", "Rowing", "Climbing", "Tennis", "Swimming",  "Other"],
-        "scores": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "options": ["Dance", "Running", "Cycling", "Strength/Gym", "Pilates/Yoga", "Triathlon", "Football", "Rugby", "Rowing", "Climbing", "Tennis", "Swimming", "Boxing/Martial arts", "Other"],
+        "scores": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "category": "info"
     }, {
         "id": 3,
@@ -255,8 +255,8 @@ def get_male_questions():
         "id": 2,
         "text": "What is your main exercise type?",
         "type": "multiple_choice",
-        "options": ["Dance", "Running", "Cycling", "Triathlon", "Football", "Rugby", "Rowing", "Climbing", "Tennis", "Swimming",  "Other"],
-        "scores": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        "options": ["Running", "Cycling", "Strength/Gym", "Boxing/Martial arts", "Triathlon", "Football", "Rugby", "Rowing", "Climbing", "Tennis", "Swimming", "Dance", "Pilates/Yoga", "Other"],
+        "scores": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         "category": "info"
     }, {
         "id": 3,
