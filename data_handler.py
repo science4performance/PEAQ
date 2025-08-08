@@ -136,7 +136,7 @@ def save_assessment(user_id, sex, answers, scores, overall_score, interpretation
     
 #     return assessment
 
-def create_pdf(user_id, assessment_id, sex, overall_score, interpretation, comment):
+def create_pdf(user_id, assessment_id, sex, overall_score, interpretation, comment, date):
     # # Create a PDF object
     user_dir = DATA_DIR / user_id
     user_dir.mkdir(exist_ok=True)
@@ -183,4 +183,5 @@ def create_pdf(user_id, assessment_id, sex, overall_score, interpretation, comme
     pdf.set_xy(10, 260)
     pdf.set_text_color(0,0,0)
     pdf.write(8,f"PEAQ id: {assessment_id}")
-    pdf.output(user_dir/"PEAQ_results.pdf")  # Save the PDF to a 
+    pdf.cell(0, 10, f"Assessment Date: {date}", ln=True)
+    pdf.output(user_dir/"PEAQ_results.pdf")  # Save the PDF to a
