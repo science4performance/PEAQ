@@ -291,7 +291,8 @@ def display_questionnaire():
 
 def display_results():
     # Display the results of the assessment
-    st.header("Your Personal Energy Availability Results")
+    today_str = datetime.datetime.now().strftime("%d-%b-%Y")
+    st.header(f"Your Personal Energy Availability Results ({today_str})")
     comment = (
         "For most people, the REDs Risk Score is between -10 and +10. "
         "A strong positive score indicates good energy availability, "
