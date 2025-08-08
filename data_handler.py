@@ -149,7 +149,7 @@ def create_pdf(user_id, assessment_id, sex, overall_score, interpretation, comme
 
     # Subheading
     pdf.set_font("Arial", style="B", size=16)
-    pdf.write( 10, txt="Your Personal Energy Availability Results\n")
+    pdf.write( 10, txt=f"Your Personal Energy Availability Results ({date})\n")
     pdf.set_font("Arial",  size=12)
     pdf.write(8, txt=comment)
     # Label charts
@@ -183,5 +183,5 @@ def create_pdf(user_id, assessment_id, sex, overall_score, interpretation, comme
     pdf.set_xy(10, 260)
     pdf.set_text_color(0,0,0)
     pdf.write(8,f"PEAQ id: {assessment_id}")
-    pdf.cell(0, 10, f"Assessment Date: {date}", ln=True)
+    #pdf.cell(0, 10, f"Assessment Date: {date}", ln=True)
     pdf.output(user_dir/"PEAQ_results.pdf")  # Save the PDF to a
