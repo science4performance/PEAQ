@@ -371,10 +371,15 @@ def display_results():
     st.markdown(final_comment2 , unsafe_allow_html=True)
  
     
-    create_pdf(user_id=st.session_state.user_id, 
-               assessment_id=st.session_state.assessment_id, 
-               sex=st.session_state.sex, 
-                     overall_score=overall_score, interpretation=interpretation, comment=comment)
+    create_pdf(
+        user_id=st.session_state.user_id,
+        assessment_id=st.session_state.assessment_id,
+        sex=st.session_state.sex,
+        overall_score=overall_score,
+        interpretation=interpretation,
+        comment=comment,
+        date=today_str  # <-- Pass the date to the PDF
+    )
     
 
     # Save the PDF to a buffer
